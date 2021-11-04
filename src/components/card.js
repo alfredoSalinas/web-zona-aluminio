@@ -1,44 +1,25 @@
 import React from "react";
+import './style.css'
 
-const Card=(props) =>{
-    const{
-        type,
-        children
-    }=props
-    const styles = {
-        uno : {
-            
-            backgroundColor: '#fff',
-            borderRadius: 5,
-            color: '#2A3B47',
-            boxShadow: '3px 3px 3px 1.5px #949ba0',
-            border: 1,
-            margin: '2%'
-        },
-        dos: {
-            width: 600,
-            backgroundColor: 'transparent',
-            borderRadius: 5,
-            color: '#2A3B47',
-            margin: '2%',
-        },
-        tres : {
-            width: '40%',
-            height: 1000,
-            backgroundColor: '#fff',
-            color: '#fff',
-            border: 1,
-            marginLeft: 0,
-            marginTop: '60px',
-            position: 'absolute'
-        }
-    }
-
-    const className = [styles.uno, styles.dos, styles.tres]
-
+const Card = ({datos, fotoDocente, iconBandera})=>{
     return(
-        <div style={className[type]}>
-            {children}
+        <div className="card">
+            <img src={datos.portada} className="imgCard" alt="" />
+            <div className="subtitle2 centrado">
+                {datos.titulo}
+            </div>
+            <div className="parrafo centrado" style={{textAlign:'justify', textJustify:'inter-word'}}>
+                {datos.resumen}
+            </div>
+            <div className="parrafo centrado cardPosition" style={{textAlign:'justify', textJustify:'inter-word'}}>
+                <button className="btnSecundary">Más</button>
+                <p className="numero">{ datos.precio }</p>
+            </div>
+            <div className="parrafo centrado cardPosition cardColor" style={{textAlign:'justify', textJustify:'inter-word'}}>
+                <img src={fotoDocente} width="30px" className="circulo" alt="" />
+                    {datos.docente}
+                <img src={iconBandera} height="20px" alt="" />
+            </div>
         </div>
     )
 }

@@ -84,7 +84,6 @@ export default function Header() {
             onClose={handleClose}
         >
             <MenuItem className={classes.menuItem}>
-            {open ? <ExpandLess /> : <ExpandMore />}
                 Perfiles de aluminio
                 <ListItemIcon/>
             </MenuItem>
