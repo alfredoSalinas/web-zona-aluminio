@@ -75,40 +75,8 @@ export default function Header() {
             <Button variant="outlined" color='inherit'>Registrarme</Button>
         </Toolbar>
       </AppBar>
-<<<<<<< HEAD
-        <div>
         
-        <Menu className={classes.menu}
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-        >
-            <MenuItem className={classes.menuItem}>
-                Perfiles de aluminio
-                <ListItemIcon/>
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Quincalleria
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Jaladores
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Accesorios de vidrio templado
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Barandas
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Placas
-            </MenuItem>
-        </Menu>
-        </div>
-=======
         <MenuProductos anchorEl={anchorEl} handleClose={handleClose} />
->>>>>>> 3a88300ab70450b8235f865b7b140a2ca9cb4b92
       </div>
   );
 }
