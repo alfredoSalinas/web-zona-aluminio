@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Menu, MenuItem } from '@material-ui/core';
+import MenuAluminio from "./menuAluminio";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,7 +42,20 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuProductos = (props)=>{
     const classes = useStyles();
+    const [openAluminio, setOpenAluminio] = React.useState(false);
+    const [anchorAluminio, setAnchorAluminio] = React.useState(null);
+
+    const handleClickAluminio = (event) => {
+        setAnchorAluminio(event.currentTarget);
+        setOpenAluminio(true)
+    };
+
+    const handleCloseAluminio = () => {
+        setAnchorAluminio(null);
+        setOpenAluminio(false)
+    }
     return(
+        <>
         <Menu className={classes.menu}
             id="simple-menu"
             anchorEl={props.anchorEl}
@@ -49,7 +63,7 @@ const MenuProductos = (props)=>{
             open={Boolean(props.anchorEl)}
             onClose={props.handleClose}
         >
-            <MenuItem className={classes.menuItem} onClick={props.handleClose}>
+            <MenuItem className={classes.menuItem} onClick={handleClickAluminio}>
                 Perfiles de aluminio
                 <ListItemIcon/>
             </MenuItem>
@@ -69,6 +83,8 @@ const MenuProductos = (props)=>{
                 Placas
             </MenuItem>
         </Menu>
+        <MenuAluminio open={openAluminio} anchorEl={anchorAluminio} handleClose={handleCloseAluminio} />
+        </>
     )
 }
 
