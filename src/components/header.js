@@ -105,5 +105,6 @@ export default function Header() {
             </MenuItem>
         </Menu>
         </div>
+      </div>
   );
 }
