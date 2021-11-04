@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../images/logo.png'
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
+import MenuProductos from './menus/menuProductos';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,37 +75,7 @@ export default function Header() {
             <Button variant="outlined" color='inherit'>Registrarme</Button>
         </Toolbar>
       </AppBar>
-        <div>
-        
-        <Menu className={classes.menu}
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-        >
-            <MenuItem className={classes.menuItem}>
-            {open ? <ExpandLess /> : <ExpandMore />}
-                Perfiles de aluminio
-                <ListItemIcon/>
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Quincalleria
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Jaladores
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Accesorios de vidrio templado
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Barandas
-            </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={handleClose}>
-                Placas
-            </MenuItem>
-        </Menu>
-        </div>
+        <MenuProductos anchorEl={anchorEl} handleClose={handleClose} />
       </div>
   );
 }
