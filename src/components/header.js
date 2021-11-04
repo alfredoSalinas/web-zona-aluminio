@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../images/logo.png'
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
+import MenuProductos from './menus/menuProductos';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,6 +75,7 @@ export default function Header() {
             <Button variant="outlined" color='inherit'>Registrarme</Button>
         </Toolbar>
       </AppBar>
+<<<<<<< HEAD
         <div>
         
         <Menu className={classes.menu}
@@ -104,6 +106,9 @@ export default function Header() {
             </MenuItem>
         </Menu>
         </div>
+=======
+        <MenuProductos anchorEl={anchorEl} handleClose={handleClose} />
+>>>>>>> 3a88300ab70450b8235f865b7b140a2ca9cb4b92
       </div>
   );
 }
