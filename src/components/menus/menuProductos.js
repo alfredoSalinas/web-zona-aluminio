@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Menu, MenuItem } from '@material-ui/core';
 import MenuAluminio from "./menuAluminio";
+import MenuVidrio from "./menuVidrio";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,6 +53,21 @@ const MenuProductos = (props)=>{
     const handleCloseAluminio = () => {
         setAnchorAluminio(null);
         setOpenAluminio(false)
+    };
+
+    const MenuProductos = (props)=>{ 
+    const classes = useStyles();
+    const [openVidrio, setOpenVidrio] = React.useState(false);
+    const [anchorVidrio, setAnchorVidrio] = React.useState(null);
+
+    const handleClickVidrio = (event) => {
+        setAnchorVidrio(event.currentTarget);
+        setOpenVidrio(true)
+    };
+
+    const handleCloseVidrio = () => {
+        setAnchorVidrio(null);
+        setOpenVidrio(false)
     }
     return(
         <>
@@ -65,7 +80,6 @@ const MenuProductos = (props)=>{
         >
             <MenuItem className={classes.menuItem} onClick={handleClickAluminio}>
                 Perfiles de aluminio
-                <ListItemIcon/>
             </MenuItem>
             <MenuItem className={classes.menuItem} onClick={props.handleClose}>
                 Quincalleria
@@ -73,7 +87,7 @@ const MenuProductos = (props)=>{
             <MenuItem className={classes.menuItem} onClick={props.handleClose}>
                 Jaladores
             </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={props.handleClose}>
+            <MenuItem className={classes.menuItem} onClick={handleClickVidrio}>
                 Accesorios de vidrio templado
             </MenuItem>
             <MenuItem className={classes.menuItem} onClick={props.handleClose}>
@@ -84,8 +98,9 @@ const MenuProductos = (props)=>{
             </MenuItem>
         </Menu>
         <MenuAluminio open={openAluminio} anchorEl={anchorAluminio} handleClose={handleCloseAluminio} />
+        <MenuVidrio open={openVidrio} anchorEl={anchorVidrio} handleClose={handleCloseVidrio} />
         </>
     )
 }
-
+}
 export default MenuProductos

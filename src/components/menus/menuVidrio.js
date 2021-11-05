@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MenuAluminio(props) {
+export default function MenuVidrio(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
@@ -48,31 +48,22 @@ export default function MenuAluminio(props) {
           <Fade {...TransitionProps} timeout={350}>
             <Paper>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Linea 12
+                    Kits
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 20
+                    Herraje de Correr
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 25
+                    Herraje de Abatir
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 32
+                    Herraje Basculante
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 35
+                    Herraje Paños Fijos
                 </MenuItem>
                 <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 42
-                </MenuItem>
-                <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Línea 4000
-                </MenuItem>
-                <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Tubos
-                </MenuItem>
-                <MenuItem className={classes.menuItem} onClick={props.handleClose}>
-                  Vidrio templado
+                    Herraje Minis
                 </MenuItem>
             </Paper>
           </Fade>
