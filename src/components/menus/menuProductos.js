@@ -44,6 +44,8 @@ const MenuProductos = (props)=>{
     const classes = useStyles();
     const [openAluminio, setOpenAluminio] = React.useState(false);
     const [anchorAluminio, setAnchorAluminio] = React.useState(null);
+    const [openVidrio, setOpenVidrio] = React.useState(false);
+    const [anchorVidrio, setAnchorVidrio] = React.useState(null);
 
     const handleClickAluminio = (event) => {
         setAnchorAluminio(event.currentTarget);
@@ -55,10 +57,8 @@ const MenuProductos = (props)=>{
         setOpenAluminio(false)
     };
 
-    const MenuProductos = (props)=>{ 
-    const classes = useStyles();
-    const [openVidrio, setOpenVidrio] = React.useState(false);
-    const [anchorVidrio, setAnchorVidrio] = React.useState(null);
+    
+    
 
     const handleClickVidrio = (event) => {
         setAnchorVidrio(event.currentTarget);
@@ -102,5 +102,5 @@ const MenuProductos = (props)=>{
         </>
     )
 }
-}
+
 export default MenuProductos
