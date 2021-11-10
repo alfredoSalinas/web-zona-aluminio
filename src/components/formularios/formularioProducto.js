@@ -4,7 +4,7 @@ import {makeStyles, Select, MenuItem} from '@material-ui/core';
 
 const useStyles= makeStyles((theme) => ({
     paper:{
-        padding: '2%'
+        padding: theme.spacing(1)
     },
     label:{
         textAlign: 'left',

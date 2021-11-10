@@ -48,9 +48,7 @@ export default function ModalProducto(props) {
         style={{maxHeight: '100%', overflow: 'auto'}}
       >
         <Fade in={props.open}>
-            <Paper className={classes.paper}>
-                <FormularioProducto />    
-            </Paper>   
+          <FormularioProducto />    
         </Fade>
       </Modal>
     </div>
