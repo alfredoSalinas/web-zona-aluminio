@@ -1,20 +1,15 @@
 import React from "react";
-import CommonStyles from "../common/styles/commonStyles";
-
-const homeStyle = {
-    home :{
-        ...CommonStyles.containerBox,
-        ...CommonStyles.colorPrimary
-    }
-}
+import { Card, Container, Modal } from "@material-ui/core";
+import FormularioProducto from "../components/formularios/formularioProducto";
+import FormularioProductos from "../components/formularios/formularioProductos";
+import ModalProducto from "../components/modales/modalProducto";
+import Productos from "./productos";
 
 const Home = ()=>{
     return(
-        <div >
-            Home
-            <div style={CommonStyles.caja}>divider</div>
-            <div></div>
-        </div>
+        <Container>
+           <Productos/>
+        </Container>
     )
 }
 
