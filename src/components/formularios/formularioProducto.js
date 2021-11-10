@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 
-const FormularioProducto = (eventos)=>{
-    const [age, setAge] = React.useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
-const classes={
+const useStyles= makeStyles => ({
     paper:{
         padding: '2%'
     },
@@ -91,7 +84,17 @@ const classes={
         color: '#949ba0'
     }
       
-}
+})
+
+const FormularioProducto = (eventos)=>{
+    const classes = useStyles()
+    const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+
 
     return(
         <Paper style={classes.paper}>
