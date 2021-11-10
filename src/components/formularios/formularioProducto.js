@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 
-const useStyles= makeStyles => ({
+const useStyles= makeStyles((theme) => ({
     paper:{
         padding: '2%'
     },
@@ -84,7 +84,7 @@ const useStyles= makeStyles => ({
         color: '#949ba0'
     }
       
-})
+}))
 
 const FormularioProducto = (eventos)=>{
     const classes = useStyles()
@@ -97,26 +97,26 @@ const FormularioProducto = (eventos)=>{
 
 
     return(
-        <Paper style={classes.paper}>
-            <Typography variant='h5' style={classes.title}>
+        <Paper className={classes.paper}>
+            <Typography variant='h5' className={classes.title}>
                 Producto
             </Typography>
-            <label style={classes.label}>
+            <label className={classes.label}>
                 Nombre del Producto
             </label>
-            <input type="text" style={classes.formControl} name="precio"/>
+            <input type="text" className={classes.formControl} name="precio"/>
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
-                    <label style={classes.label}>
+                    <label className={classes.label}>
                         Codigo
                     </label>
-                    <input type="text" style={classes.formControl} name="codigo"/>
+                    <input type="text" className={classes.formControl} name="codigo"/>
                 </div>
                 <div className='flexV' style={{width:'50%'}}>
-                    <label style={classes.label}>
+                    <label className={classes.label}>
                         Precio
                     </label>
-                    <input type="text" style={classes.formControl} name="precio"/>
+                    <input type="text" className={classes.formControl} name="precio"/>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
@@ -126,18 +126,18 @@ const FormularioProducto = (eventos)=>{
                     </label>
                     <i class="subtitle"></i>
                           
-                    <input type="file" id="btn-file" style={classes.containerBtnFile} name="foto"/>
+                    <input type="file" id="btn-file" className={classes.containerBtnFile} name="foto"/>
                 </div>
                 <div style={{width:'50%'}}>
-                    <label style={classes.label}>
+                    <label className={classes.label}>
                         Color
                     </label>
-                    <input type="text" style={classes.formControl} name="color"/>
+                    <input type="text" className={classes.formControl} name="color"/>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
-                    <label style={classes.label}>
+                    <label className={classes.label}>
                         Seleccionar Grupo
                     </label>
                     <Select
@@ -145,7 +145,7 @@ const FormularioProducto = (eventos)=>{
                         id="demo-simple-select-disabled"
                         value={age}
                         onChange={handleChange}
-                        style={classes.formControl}
+                        className={classes.formControl}
                         >
                         <MenuItem value="">
                             <em>None</em>
@@ -156,15 +156,15 @@ const FormularioProducto = (eventos)=>{
                     </Select>
                 </div>
                 <div style={{width:'50%'}}>
-                    <label style={classes.label}>
+                    <label className={classes.label}>
                         Seleccionar Sub Grupo
                     </label>
-                    <input type="text" style={classes.formControl} name="subGrupo"/>
+                    <input type="text" className={classes.formControl} name="subGrupo"/>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center'>
-                <button style={classes.button}>Aceptar</button>
-                <button style={classes.button1} onClick={eventos.onClick}>Cancelar</button>
+                <button className={classes.button}>Aceptar</button>
+                <button className={classes.button1} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>
     )
