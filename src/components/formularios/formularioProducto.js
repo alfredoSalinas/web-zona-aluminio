@@ -4,7 +4,7 @@ import {makeStyles, Select, MenuItem} from '@material-ui/core';
 
 const useStyles= makeStyles((theme) => ({
     paper:{
-        padding: theme.spacing(1)
+        padding: '2%'
     },
     label:{
         textAlign: 'left',
@@ -132,7 +132,20 @@ const FormularioProducto = (eventos)=>{
                     <label className={classes.label}>
                         Color
                     </label>
-                    <input type="text" className={classes.formControl} name="color"/>
+                    <Select
+                        labelId="demo-simple-select-disabled-label"
+                        id="demo-simple-select-disabled"
+                        value={age}
+                        onChange={handleChange}
+                        className={classes.formControl}
+                        >
+                        <MenuItem value={10}>Natural</MenuItem>
+                        <MenuItem value={20}>Champagne</MenuItem>
+                        <MenuItem value={30}>Negro</MenuItem>
+                        <MenuItem value={40}>Cromado</MenuItem>
+                        <MenuItem value={50}>Bronce</MenuItem>
+                        <MenuItem value={60}>Sin color</MenuItem>
+                    </Select>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
@@ -159,7 +172,20 @@ const FormularioProducto = (eventos)=>{
                     <label className={classes.label}>
                         Seleccionar Sub Grupo
                     </label>
-                    <input type="text" className={classes.formControl} name="subGrupo"/>
+                    <Select
+                        labelId="demo-simple-select-disabled-label"
+                        id="demo-simple-select-disabled"
+                        value={age}
+                        onChange={handleChange}
+                        className={classes.formControl}
+                        >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center'>
