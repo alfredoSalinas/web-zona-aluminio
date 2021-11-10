@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
-import {makeStyles} from '@material-ui/core';
+import {makeStyles, Select, MenuItem} from '@material-ui/core';
 
 const FormularioProducto = (eventos)=>{
+    const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
 const classes={
     paper:{
         padding: '2%'
@@ -131,7 +137,20 @@ const classes={
                     <label style={classes.label}>
                         Seleccionar Grupo
                     </label>
-                    <input type="select" style={classes.formControl} name="grupo"/>
+                    <Select
+                        labelId="demo-simple-select-disabled-label"
+                        id="demo-simple-select-disabled"
+                        value={age}
+                        onChange={handleChange}
+                        style={classes.formControl}
+                        >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
                 </div>
                 <div style={{width:'50%'}}>
                     <label style={classes.label}>
