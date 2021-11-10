@@ -1,12 +1,16 @@
-import { Card } from "@material-ui/core";
+import { Card, Container, Modal } from "@material-ui/core";
 import React from "react";
+import FormularioProducto from "../components/formularios/formularioProducto";
+import FormularioProductos from "../components/formularios/formularioProductos";
+import ModalProducto from "../components/modales/modalProducto";
+import Productos from "./productos";
 
 
 const Home = ()=>{
     return(
-        <div>
-           
-        </div>
+        <Container>
+           <Productos/>
+        </Container>
     )
 }
 
