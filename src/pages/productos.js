@@ -3,17 +3,25 @@ import ModalProducto from "../components/modales/modalProducto";
 
 
 const Productos = ()=>{
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () =>{
+        setOpen(true)
+    }
+
+    const handleClose =()=>{
+        setOpen(false)
+    }
 
     return(
         <div style={{marginTop:80, marginLeft:'5%', marginRight:'5%'}}>
             <div style={{justifyContent:'space-between', marginBottom:'3%'}}>
                 <div className="title3">
                     Productos
-                    <button onClick={ver}>ver</button>
                 </div>
                 <button className='button btnPrimary' onClick={()=>handleOpen(null)}>Añadir producto</button>
             </div>
-            <ModalProducto docente={docente} open={open} handleClose={handleClose} />
+            <ModalProducto  open={open} handleClose={handleClose} />
         </div>
     )
 }
