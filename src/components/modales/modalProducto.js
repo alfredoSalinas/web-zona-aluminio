@@ -14,18 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    width:'80%',
-    padding:'15px', 
-    display:'flex', 
-    fontFamily: 'MyriadPro',
-    flexDirection:'column', 
-    justifyContent:'center',
-    alignItems:'center',
-  },
+  }
 }));
 
 export default function ModalProducto(props) {
@@ -48,9 +37,7 @@ export default function ModalProducto(props) {
         style={{maxHeight: '100%', overflow: 'auto'}}
       >
         <Fade in={props.open}>
-            <Paper className={classes.paper}>
-                <FormularioProducto />    
-            </Paper>   
+                <FormularioProducto />     
         </Fade>
       </Modal>
     </div>
