@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalProducto from "../components/modales/modalProducto";
-import {Box, makeStyles, Typography} from '@material-ui/core';
+import {Box, makeStyles, Typography, Container} from '@material-ui/core';
 import TablaProductos from "../components/tablas/tablaProductos";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
       title:{
         textAlign: 'start',
         color: '#2A3B47'
-      }
+      },
+      container:{
+        marginTop:'2%'
+      },
   }));
 
 const AdminProductos = ()=>{
@@ -44,7 +47,7 @@ const AdminProductos = ()=>{
         setOpen(false)
     }
     return(
-        <Box marginTop='5%'>
+        <Container className={classes.container}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Productos
@@ -53,7 +56,7 @@ const AdminProductos = ()=>{
             </Box>
             <ModalProducto  open={open} handleClose={handleClose} />
             <TablaProductos/>
-        </Box>
+        </Container>
     )
 }
 

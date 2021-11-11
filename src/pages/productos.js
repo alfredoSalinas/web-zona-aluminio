@@ -120,7 +120,7 @@ const Productos = ()=>{
 
     return(
         <Container className={classes.container}>
-            <Box display='flex' marginBottom='3%'>
+            <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Productos
                 </Typography>
