@@ -4,19 +4,19 @@ import MiIcon from "../icon";
 import editIcon from "../../iconos/editar.svg";
 import delIcon from "../../iconos/eliminar.svg"
 
-const TablaProductos = ()=>{
+const TablaTutoriales = ()=>{
     
     const datos = [
         {
-            codigo: '452356',
-            descripcion: 'Usado para ventanas',
-            precio: '235 Bs',
+            titulo: 'Como hacer una ventana corrediza',
+            imagen: '',
+            enlace: '',
         },
         {
-            codigo: '452356',
-            descripcion: 'Usado para ventanas',
-            precio: '235 Bs',
-        }
+            titulo: 'Como hacer una ventana corrediza',
+            imagen: '',
+            enlace: '',
+        },
     ]
 
     const useStyles = makeStyles((theme) => ({
@@ -43,6 +43,16 @@ const TablaProductos = ()=>{
             color: '#2A3B47',
             fontSize: '1em'
         },
+        link:{
+            fontSize: '1.1em',
+            color: '#32A2F1',
+            textDecoration: 'underline',
+            
+            "&:hover": {
+                cursor: 'pointer',
+                color: '#329be6e5'
+              },
+          }
 
       }));
       
@@ -51,9 +61,9 @@ const TablaProductos = ()=>{
         <div>
             <table className={classes.table}>
                 <th className={classes.th}>Nro.</th>
-                <th className={classes.th}>Codigo</th>
-                <th className={classes.th}>Descripción</th>
-                <th className={classes.th}>Precio</th>
+                <th className={classes.th}>Titulo</th>
+                <th className={classes.th}>Imagen</th>
+                <th className={classes.th}>Enlace</th>
                 <th></th>
                 <th></th>
 
@@ -61,13 +71,12 @@ const TablaProductos = ()=>{
                 datos.map((item, i) => 
                 <tr key={i}>
                 <td className={classes.td1}>{i + 1}</td>
-                <td className={classes.td1}>{item.codigo}</td>
-                <td className={classes.td}>{item.descripcion}</td>
-                <td className={classes.td1}>{item.precio}</td>
-                <td className={classes.td} style={{border:0, width:30}}>
-                    <MiIcon>
-                        <img src={editIcon} width='25px' alt=""/>
-                    </MiIcon>
+                <td className={classes.td}>{item.titulo}</td>
+                <td className={classes.td1}>{item.imagen}
+                    <a href="#" className={classes.link}>ver</a>
+                </td>
+                <td className={classes.td1}>{item.enlace}
+                    <a href="#" className={classes.link}>ver</a>
                 </td>
                 <td className={classes.td} style={{border:0, width:30}}>
                     <MiIcon >
@@ -82,4 +91,4 @@ const TablaProductos = ()=>{
     )
 }
 
-export default TablaProductos
+export default TablaTutoriales

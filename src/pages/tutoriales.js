@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ModalProducto from "../components/modales/modalProducto";
 import {Box, makeStyles, Typography} from '@material-ui/core';
-import TablaProductos from "../components/tablas/tablaProductos";
+import TablaTutoriales from "../components/tablas/tablaTutoriales";
+import ModalTutorial from "../components/modales/modalTutorial";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -25,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: '#84ff42',
           },
       },
-
+      
       title:{
         textAlign: 'start',
         color: '#2A3B47'
       }
   }));
 
-const Productos = ()=>{
+const Tutoriales = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
 
@@ -47,14 +47,14 @@ const Productos = ()=>{
         <Box marginTop='5%'>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
-                    Productos
+                    Tutoriales
                 </Typography>
-                <button className={classes.button} onClick={()=>handleOpen(null)}>Añadir producto</button>
+                <button className={classes.button} onClick={()=>handleOpen(null)}>Añadir tutorial</button>
             </Box>
-            <ModalProducto  open={open} handleClose={handleClose} />
-            <TablaProductos/>
+            <ModalTutorial open={open} handleClose={handleClose} />
+            <TablaTutoriales/>
         </Box>
     )
 }
 
-export default Productos
+export default Tutoriales

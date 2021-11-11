@@ -3,7 +3,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import {makeStyles} from '@material-ui/core';
-import FormularioProducto from '../formularios/formularioProducto';
+import FormularioTutorial from '../formularios/formularioTutorial';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ModalProducto(props) {
+export default function ModalTutorial(props) {
   const classes = useStyles();
   
   return (
@@ -44,7 +44,7 @@ export default function ModalProducto(props) {
         style={{maxHeight: '100%', overflow: 'auto'}}
       >
         <Fade in={props.open}>
-          <FormularioProducto />    
+          <FormularioTutorial />    
         </Fade>
       </Modal>
     </div>

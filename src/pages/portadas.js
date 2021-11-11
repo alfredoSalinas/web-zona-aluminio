@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ModalProducto from "../components/modales/modalProducto";
 import {Box, makeStyles, Typography} from '@material-ui/core';
-import TablaProductos from "../components/tablas/tablaProductos";
+import TablaTutoriales from "../components/tablas/tablaTutoriales";
+import ModalTutorial from "../components/modales/modalTutorial";
+import TablaPortada from "../components/tablas/tablaPortada";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1rem',
         fontWeight: 400,
         fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
+        color: '#2A3B47',
         backgroundClip: 'padding-box',
         cursor: 'pointer',
         webkitAppearance: 'none',
@@ -19,20 +20,14 @@ const useStyles = makeStyles((theme) => ({
         padding: '0.5rem 1.5rem 0.5rem 1.5rem',
         backgroundColor: '#65FC15',
         border: '1px solid #65FC15',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
       },
-
       title:{
         textAlign: 'start',
         color: '#2A3B47'
       }
   }));
 
-const Productos = ()=>{
+const Portadas = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
 
@@ -47,14 +42,12 @@ const Productos = ()=>{
         <Box marginTop='5%'>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
-                    Productos
+                    Portadas
                 </Typography>
-                <button className={classes.button} onClick={()=>handleOpen(null)}>Añadir producto</button>
             </Box>
-            <ModalProducto  open={open} handleClose={handleClose} />
-            <TablaProductos/>
+            <TablaPortada/>
         </Box>
     )
 }
 
-export default Productos
+export default Portadas

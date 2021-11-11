@@ -53,7 +53,7 @@ const useStyles= makeStyles((theme) => ({
         fontSize: '1rem',
         fontWeight: 400,
         fontFamily: 'MyriadPro',
-        color: '#1b1b1b',
+        color: '#1F1D1D',
         backgroundClip: 'padding-box',
         cursor: 'pointer',
         webkitAppearance: 'none',
@@ -61,23 +61,23 @@ const useStyles= makeStyles((theme) => ({
         appearance: 'none',
         borderRadius: 5,
         padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: '#84ff42',
-        border: '1px solid #84ff42',
+        backgroundColor: '#65FC15',
+        border: '1px solid #65FC15',
         marginRight:'25%',
 
         "&:hover": {
-            border: '1px solid #65FC15',
-            backgroundColor: '#65FC15',
+            border: '1px solid #84ff42',
+            backgroundColor: '#84ff42',
           },
       },
 
       
-    button1:{
+      button1:{
         height: 40,
         fontSize: '1rem',
         fontWeight: 400,
         fontFamily: 'MyriadPro',
-        color: '#1b1b1b',
+        color: '#1F1D1D',
         backgroundClip: 'padding-box',
         cursor: 'pointer',
         webkitAppearance: 'none',
@@ -85,18 +85,22 @@ const useStyles= makeStyles((theme) => ({
         appearance: 'none',
         borderRadius: 5,
         padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: '#949ba0',
-        border: '1px solid #949ba0',
+        backgroundColor: '#ee7171',
+        border: '1px solid #ee7171',
 
         "&:hover": {
-            border: '1px solid #ee7171',
-            backgroundColor: '#ee7171',
-          },
+            border: '1px solid #fa7676',
+            backgroundColor: '#fa7676',
+          }
     },
     title:{
         textAlign: 'center',
         color: '#2A3B47',
         marginBottom:'20px'
+      },
+    imgArchivo:{
+        width: 24,
+        color: '#949ba0'
       }
 }))
 
@@ -140,7 +144,7 @@ const FormularioProducto = (eventos)=>{
                     </label>
                     <button className={classes.containerBtnFile}>
                         <i ></i>
-                            <img src={archivo} class="imgArchivo" alt="" />Sube la foto del producto
+                            <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
                         <input type="file" id="btn-file" />
                     </button>
                     
