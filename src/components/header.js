@@ -79,7 +79,7 @@ export default function Header() {
                   <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Cotizar</Button>
                 </Link>
                 <Link to='/tutoriales' style={{textDecoration:'none', color:'inherit'}}>
-                <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit'>Tutoriales</Button>
+                <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Tutoriales</Button>
                 </Link>
                 <Link to='/adminProductos' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit'>AdminProductos</Button>
