@@ -3,6 +3,7 @@ import {Box, makeStyles, Typography} from '@material-ui/core';
 import TablaTutoriales from "../components/tablas/tablaTutoriales";
 import ModalTutorial from "../components/modales/modalTutorial";
 import TablaPedido from "../components/tablas/tablaPedido";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -35,27 +36,21 @@ const useStyles = makeStyles((theme) => ({
 
 const MiPedido = ()=>{
     const classes = useStyles()
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () =>{
-        setOpen(true)
-    }
-
-    const handleClose =()=>{
-        setOpen(false)
-    }
+    
     return(
         <Box marginTop='5%'>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Mi Pedido
                 </Typography>
-                <button className={classes.button} onClick={()=>handleOpen(null)}>Atras</button>
+                <Link to='/cotizar' style={{textDecoration:'none', color:'inherit'}} >
+                <button className={classes.button} >Atras</button>
+                </Link>
             </Box>
             <TablaPedido/>
             <Box display='flex' justifyContent='space-between' marginLeft='20%' marginRight='20%' marginTop='5%'>
-                <button className={classes.button} onClick={()=>handleOpen(null)}>Enviar pedido</button>
-                <button className={classes.button} onClick={()=>handleOpen(null)}>Imprimir pedido</button>
+                <button className={classes.button} >Enviar pedido</button>
+                <button className={classes.button} >Imprimir pedido</button>
             </Box>
         </Box>
     )
