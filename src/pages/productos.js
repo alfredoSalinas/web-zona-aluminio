@@ -5,6 +5,7 @@ import TablaProductos from "../components/tablas/tablaProductos";
 import Grid from '@material-ui/core/Grid';
 import Cards from '../components/cards'
 import foto from '../images/aluminio.png'
+import ProductSelect from "../components/productSelect";
 
 const productos = [
     {
@@ -32,6 +33,16 @@ const productos = [
 
 
 const useStyles = makeStyles((theme) => ({
+        root: {
+          flexGrow: 1,
+        },
+        paper: {
+          height: 140,
+          width: 100,
+        },
+        control: {
+          padding: theme.spacing(2),
+        },
     button: {
         height: 40,
         fontSize: '1rem',
@@ -56,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
 
       title:{
         textAlign: 'start',
-        color: '#2A3B47'
+        color: '#2A3B47',
+        marginRight: 50
       }
   }));
 
@@ -72,13 +84,14 @@ const Productos = ()=>{
         setOpen(false)
     }
     return(
-        <Box marginTop='5%'>
-            <Box display='flex' justifyContent='space-between' marginBottom='3%'>
+        <Box marginTop='1%'>
+            <Box display='flex' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Productos
                 </Typography>
+                <ProductSelect/>
             </Box>
-            <div className={classes.root}>
+            <Box className={classes.root}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Grid container justify="center" spacing={2}>
@@ -90,52 +103,9 @@ const Productos = ()=>{
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
+            </Box>
         </Box>
     )
 }
 
 export default Productos
-
-/*
-const Productos = ()=>{
-    const classes = useStyles();
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () =>{
-        setOpen(true)
-    }
-
-    const handleClose =()=>{
-        setOpen(false)
-    }
-
-    return(
-        <div style={{marginTop:80, marginLeft:'5%', marginRight:'5%'}}>
-            <div style={{justifyContent:'space-between', marginBottom:'3%'}}>
-                <div className="title3">
-                    Productos
-                </div>
-                <button className='button btnPrimary' onClick={()=>handleOpen(null)}>Añadir producto</button>
-            </div>
-            
-            <ModalProducto  open={open} handleClose={handleClose} />
-        </div>
-    )
-}
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      height: 140,
-      width: 100,
-    },
-    control: {
-      padding: theme.spacing(2),
-    },
-  }));
-
-export default Productos
-*/

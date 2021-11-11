@@ -7,10 +7,8 @@ import foto from "../images/aluminio.png"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop: 80,
   },
   paper: {
-    height: 290,
     width: 240,
     border:'1px solid #65FC15',
     marginRight:20
