@@ -8,6 +8,7 @@ import {
 
 import Header from './components/header';
 import Home from './pages/home';
+import Productos from './pages/productos';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Header/>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/productos" component={Productos} />
         </Switch>
       </Router>
   );

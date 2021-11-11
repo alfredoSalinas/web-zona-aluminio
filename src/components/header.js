@@ -6,6 +6,8 @@ import logo from '../images/logo.png'
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
 import MenuProductos from './menus/menuProductos';
+import { Link } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +55,9 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   }
+
+
+
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.fondo} >
@@ -64,10 +69,12 @@ export default function Header() {
                 </Button>
             </Box>
             <Box display='flex' justifyContent='flex-start'>
-                <Button aria-haspopup="true" onClick={handleClick}
+                <Link to='/productos' style={{textDecoration:'none', color:'inherit'}}>
+                <Button aria-haspopup="true"
                     style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>
                     Productos
                 </Button>
+                </Link>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Cotizar</Button>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit'>Tutoriales</Button>
             </Box>
