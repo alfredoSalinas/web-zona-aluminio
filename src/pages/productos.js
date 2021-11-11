@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalProducto from "../components/modales/modalProducto";
-import {Box, makeStyles, Typography} from '@material-ui/core';
+import {Box, Container, makeStyles, Typography} from '@material-ui/core';
 import TablaProductos from "../components/tablas/tablaProductos";
 import Grid from '@material-ui/core/Grid';
 import Cards from '../components/cards'
@@ -61,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
         control: {
           padding: theme.spacing(2),
         },
+        container:{
+            marginTop:'2%'
+          },
     button: {
         height: 40,
         fontSize: '1rem',
@@ -116,7 +119,7 @@ const Productos = ()=>{
     }
 
     return(
-        <Box marginTop='1%'>
+        <Container className={classes.container}>
             <Box display='flex' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Productos
@@ -136,7 +139,7 @@ const Productos = ()=>{
                     </Grid>
                 </Grid>
             </Box>
-        </Box>
+        </Container>
     )
 }
 
