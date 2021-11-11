@@ -61,19 +61,19 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-const Cards = ()=> {
+const Cards = (props)=> {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Box className={classes.box}>
-          <div>JAMBA</div>
+          <div>{props.tarjeta.codigo}</div>
         </Box>
         <Box>
-          <img height='200px' width='100%' src={foto}/>
+          <img height='200px' width='100%' src={props.tarjeta.foto}/>
         </Box>
         <Box className={classes.box1}>
-          <Typography>Usado para ventanas dobles corredizas.</Typography>
+          <Typography>{props.tarjeta.description}</Typography>
           <div className={classes.boton}>
             Cotizar
           </div>

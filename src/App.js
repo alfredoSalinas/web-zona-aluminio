@@ -9,6 +9,9 @@ import {
 import Header from './components/header';
 import Home from './pages/home';
 import Productos from './pages/productos';
+import Cotizar from './pages/cotizar';
+import Tutoriales from './pages/tutoriales'
+import AdminProductos from './pages/adminProductos';
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/productos" component={Productos} />
+          <Route exact path="/cotizar" component={Cotizar} />
+          <Route exact path="/tutoriales" component={Tutoriales} />
+          <Route exact path="/adminProductos" component={AdminProductos} />
         </Switch>
       </Router>
   );

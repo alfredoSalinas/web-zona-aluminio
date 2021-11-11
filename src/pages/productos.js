@@ -7,14 +7,14 @@ import Cards from '../components/cards'
 import foto from '../images/aluminio.png'
 import ProductSelect from "../components/productSelect";
 
-const productos = [
+const misproductos = [
     {
         codigo: 'cod1',
         producto: '',
         description: 'Usado para ventanas dobles corredizas.',
         precio: 0,
         color: 'champagne',
-        grupo: 'aluminio',
+        grupo: 'jalador',
         subgrupo: 'L20',
         foto: foto
     },
@@ -27,10 +27,28 @@ const productos = [
         subgrupo: 'L20',
         foto: foto
     },
+    {
+        codigo: 'cod3',
+        producto: '',
+        description: 'Usado para ventanas',
+        precio: 0,
+        color: 'champagne',
+        grupo: 'jalador',
+        subgrupo: 'L20',
+        foto: foto
+    },
+    {
+        codigo: 'cod4',
+        producto: '',
+        description: 'Perfil de aluminio',
+        precio: 0,
+        color: 'champagne',
+        grupo: 'aluminio',
+        subgrupo: 'L20',
+        foto: foto
+    },
 
 ]
-
-
 
 const useStyles = makeStyles((theme) => ({
         root: {
@@ -75,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
 const Productos = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
-
+    const [productos, setProductos] = useState([])
     const handleOpen = () =>{
         setOpen(true)
     }
@@ -83,13 +101,27 @@ const Productos = ()=>{
     const handleClose =()=>{
         setOpen(false)
     }
+
+    useEffect(()=>{
+        setProductos(misproductos)
+    },[])
+
+    const buscarProducto = (valor) => {
+        console.log(valor)
+        let r = new RegExp(valor, 'ig')
+        const p = misproductos.filter((item) => {
+          return r.test(item.grupo)
+        })
+        setProductos(p)
+    }
+
     return(
         <Box marginTop='1%'>
             <Box display='flex' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title}>
                     Productos
                 </Typography>
-                <ProductSelect/>
+                <ProductSelect buscar={buscarProducto}/>
             </Box>
             <Box className={classes.root}>
                 <Grid container spacing={2}>
