@@ -12,6 +12,7 @@ import Productos from './pages/productos';
 import Cotizar from './pages/cotizar';
 import Tutoriales from './pages/tutoriales'
 import AdminProductos from './pages/adminProductos';
+import MiPedido from './pages/miPedido';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/cotizar" component={Cotizar} />
           <Route exact path="/tutoriales" component={Tutoriales} />
           <Route exact path="/adminProductos" component={AdminProductos} />
+          <Route exact path="/pedido" component={MiPedido} />
         </Switch>
       </Router>
   );
