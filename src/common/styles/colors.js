@@ -1,5 +1,5 @@
 const Colors = Object.freeze({
-  primary: '#88ac4e',
+  primary: '#65FC15',
   secondary: '#000000',
   grisDark: '#707070',
   grisLight: '#EFEFF4',
