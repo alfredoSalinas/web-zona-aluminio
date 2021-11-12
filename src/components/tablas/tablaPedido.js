@@ -38,6 +38,14 @@ const TablaPedido = ()=>{
             textAlign: 'center',
             padding: 5
           },
+          td2:{
+            border: '1px solid #949ba0',
+            borderRadius: 8,
+            color: '#2A3B47',
+            fontSize: '1.1em',
+            textAlign: 'right',
+            width: 50
+          },
           table:{
             width: '100%'
             },
@@ -64,6 +72,17 @@ const TablaPedido = ()=>{
             mozAppearance: 'none',
             appearance: 'none',
             transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+          },
+          formControl1 :{
+            fontSize: '1rem',
+            color: '#2A3B47',
+            border:'#fff',
+            backgroundClip: 'padding-box',
+            webkitAppearance: 'none',
+            mozAppearance: 'none',
+            appearance: 'none',
+            transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+            width: 50
           },
 
       }));
@@ -106,8 +125,8 @@ const TablaPedido = ()=>{
                     </Select>  
                 </td>
                 <td className={classes.td1}>{item.unidad}</td>
-                <td className={classes.td1}>{item.cantidad}
-                    <input type="number" className={classes.formControl} />
+                <td className={classes.td2}>{item.cantidad}
+                    <input type="number" className={classes.formControl1} />
                 </td>
                 <td className={classes.td} style={{border:0, width:30}}>
                     <MiIcon >

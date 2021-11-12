@@ -1,4 +1,5 @@
 //import {StyleSheet, Dimensions} from 'react';
+import {Box, Container, makeStyles, Typography} from '@material-ui/core';
 import Color from './colors';
 import CommonProperties from './commonProperties';
 //const {width} = Dimensions.get('screen');
@@ -11,7 +12,8 @@ const box = {
   ...CommonProperties.borderRadius,
 };
 
-const CommonStyles = {
+const CommonStyles = makeStyles((theme)=> (
+  {
   ...CommonProperties,
   height: {
     height: 50
@@ -80,6 +82,7 @@ const CommonStyles = {
   inputWidth: {
     width: (width * 85) / 100,
   },
-};
+  }
+  ));
 
 export default CommonStyles;
