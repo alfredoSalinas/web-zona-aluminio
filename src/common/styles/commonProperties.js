@@ -31,6 +31,7 @@ const sizes = {
   3: base,
   4: base * 1.5,
   5: base * 2,
+  6: base * 3
 };
 
 const getSpacing = () => {

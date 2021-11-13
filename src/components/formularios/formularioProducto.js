@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, Paper, Typography } from "@material-ui/core";
+import { Box, Button, Paper, Typography, Link } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
-import archivo from "../../iconos/archivo.svg"
+import archivo from "../../iconos/archivo.svg";
+
+
 
 const useStyles= makeStyles((theme) => ({
-    paper:{
-        padding: '2%'
-    },
+    
     label:{
         textAlign: 'left',
         paddingBottom: '0.5em',
@@ -106,6 +106,7 @@ const useStyles= makeStyles((theme) => ({
 
 const FormularioProducto = (eventos)=>{
     const classes = useStyles()
+    
     const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -115,7 +116,7 @@ const FormularioProducto = (eventos)=>{
 
 
     return(
-        <Paper className={classes.paper}>
+        <Paper className={classes.mt6}>
             <Typography variant='h5' className={classes.title}>
                 Producto
             </Typography>
@@ -219,7 +220,7 @@ const FormularioProducto = (eventos)=>{
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center' marginTop='20px'>
-                <button className={classes.button}>Aceptar</button>
+                <button className={classes.button} onClick={eventos.onClick}>Aceptar</button>
                 <button className={classes.button1} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>

@@ -18,7 +18,7 @@ const Cotizar = ()=>{
     //const commonStyles = CommonStyles()
     
     return(
-        <Container className={classes.mt2}>
+        <Container className={classes.mt6}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar
