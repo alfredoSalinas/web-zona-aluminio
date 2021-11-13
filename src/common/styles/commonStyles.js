@@ -67,12 +67,10 @@ const CommonStyles =
       ...CommonProperties.p5,
       ...CommonProperties.boxShadow,
     },
-    title: {
-      ...CommonProperties.bold,
-      ...CommonProperties.mt3,
-      ...CommonProperties.h3,
-      color: Color.primary,
-      textTransform: 'uppercase',
+    title:{
+      ...CommonProperties.mb20,
+      ...CommonProperties.textCenter,
+      color: Color.grisDark
     },
     link : {
       textDecoration:'none', 
@@ -85,10 +83,10 @@ const CommonStyles =
       width: (width * 85) / 100,
     },
     formControl :{
-      width: '96%',
+      width: '100%',
       ...CommonProperties.p2,
       ...CommonProperties.borderRadius,
-      ...CommonProperties.m1,
+      ...CommonProperties.mb1,
       color:Color.grisDark,
       fontSize: '1rem',
       fontWeight: 400,
@@ -100,6 +98,29 @@ const CommonStyles =
       mozAppearance: 'none',
       appearance: 'none',
       transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+    },
+    label:{
+      ...CommonProperties.pb0,
+      ...CommonProperties.pt0,
+      ...CommonProperties.textLeft
+    },
+    formControlFile :{
+      width: '100%',
+      backgroundColor: Color.white,
+      color: Color.grisLight,
+      border: '1px solid #949ba0',
+      borderStyle: 'dashed',
+      padding:'4% 2%',
+      borderRadius: 8,
+      overflow: 'hidden',
+      transition: 'ease-out 120ms background-color',
+      marginBottom: '1em',
+
+      "&:hover": {
+          border: '1px solid #2A3B47',
+          borderStyle: 'dashed',
+          color:'#2A3B47'
+        },
     },
   }
 

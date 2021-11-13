@@ -25,10 +25,10 @@ const sides = {
 };
 
 const sizes = {
-  0: 0,
+  0:'0.5em',
   1: '1rem',
   2: '2%',
-  3: base,
+  20: '20px',
   4: base * 1.5,
   5: base * 2,
 };
