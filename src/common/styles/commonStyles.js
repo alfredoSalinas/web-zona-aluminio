@@ -76,7 +76,7 @@ const CommonStyles =
     },
     textButton : {
       ...CommonProperties.mt3,
-      color: Color.grayText,
+      color: Color.secondary,
     },
     link : {
       textDecoration:'none', 

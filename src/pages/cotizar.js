@@ -10,10 +10,7 @@ const useStyles = makeStyles((theme) => ({
     title1:{
         textAlign: 'start',
         color: '#2A3B47'
-    },
-    container:{
-        marginTop:'2%'
-    },
+    }
   }));
 
 const Cotizar = ()=>{
@@ -21,7 +18,7 @@ const Cotizar = ()=>{
     //const commonStyles = CommonStyles()
     
     return(
-        <Container className={classes.container}>
+        <Container className={classes.mt2}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar
