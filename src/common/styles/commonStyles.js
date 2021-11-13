@@ -122,27 +122,17 @@ const CommonStyles =
           color: Color.grisLight
         },
     },
-    buttonAceptar:{
-      ...CommonProperties.borderRadius,
-        color: Color.secondary,
+    button:{
+      ...CommonProperties.h3,
         fontWeight: 400,
         fontFamily: 'MyriadPro',
-        fontSize:'1rem',
+        color: Color.secondary,
         backgroundClip: 'padding-box',
         cursor: 'pointer',
         webkitAppearance: 'none',
         mozAppearance: 'none',
         appearance: 'none',
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
-        marginRight:'25%',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
+        padding: '0.5rem 1.5rem 0.5rem 1.5rem'
     }
   }
 

@@ -7,6 +7,19 @@ import CommonProperties from "../../common/styles/commonProperties";
 
 const useStyles= makeStyles((theme) => ({
     ...CommonStyles,
+    button: {
+        ...CommonProperties.button,
+        ...CommonProperties.borderRadius,
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
+        backgroundColor: '#65FC15',
+        border: '1px solid #65FC15',
+        marginRight:'25%',
+
+        "&:hover": {
+            border: '1px solid #84ff42',
+            backgroundColor: '#84ff42',
+          },
+      },
       button1:{
         ...CommonProperties.button,
         ...CommonProperties.borderRadius, 
@@ -150,7 +163,7 @@ const FormularioProducto = (eventos)=>{
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center' marginTop='20px'>
-                <button className={classes.buttonAceptar}>Aceptar</button>
+                <button className={classes.button}>Aceptar</button>
                 <button className={classes.button1} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>
