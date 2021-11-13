@@ -30,7 +30,7 @@ const useStyles= makeStyles((theme) => ({
         transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
       },
       containerBtnFile :{
-        width: '96%',
+        width: '100%',
         backgroundColor: '#fff',
         color:'#949ba0',
         border: '1px solid #949ba0',
@@ -123,6 +123,21 @@ const FormularioProducto = (eventos)=>{
                 Nombre del Producto
             </label>
             <input type="text" className={classes.formControl} name="precio"/>
+            <div >
+                    <label className={classes.label}>
+                        Foto
+                    </label>
+                    <button className={classes.containerBtnFile}>
+                        <i ></i>
+                            <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
+                        <input type="file" id="btn-file" />
+                    </button>
+                    
+            </div>
+            <label className={classes.label}>
+                Descripción
+            </label>
+            <input type="text" className={classes.formControl} name="descripcion"/>
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
                     <label className={classes.label}>
@@ -139,18 +154,7 @@ const FormularioProducto = (eventos)=>{
             </Box>
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
-                    <label className={classes.label}>
-                        Foto
-                    </label>
-                    <button className={classes.containerBtnFile}>
-                        <i ></i>
-                            <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
-                        <input type="file" id="btn-file" />
-                    </button>
-                    
-                </div>
-                <div style={{width:'50%'}}>
-                    <label className={classes.label}>
+                <label className={classes.label}>
                         Color
                     </label>
                     <Select
@@ -166,7 +170,13 @@ const FormularioProducto = (eventos)=>{
                         <MenuItem value={40}>Cromado</MenuItem>
                         <MenuItem value={50}>Bronce</MenuItem>
                         <MenuItem value={60}>Sin color</MenuItem>
-                    </Select>
+                    </Select>   
+                </div>
+                <div style={{width:'50%'}}>
+                <label className={classes.label}>
+                        Unidad
+                    </label>
+                    <input type="text" className={classes.formControl} name="unidad"/>
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
