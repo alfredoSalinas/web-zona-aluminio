@@ -84,6 +84,23 @@ const CommonStyles =
     inputWidth: {
       width: (width * 85) / 100,
     },
+    formControl :{
+      width: '96%',
+      ...CommonProperties.p2,
+      ...CommonProperties.borderRadius,
+      ...CommonProperties.m1,
+      color:Color.grisDark,
+      fontSize: '1rem',
+      fontWeight: 400,
+      lineHeight: 1.5,
+      backgroundColor: Color.white,
+      backgroundClip: 'padding-box',
+      border: '1px solid #949ba0',
+      webkitAppearance: 'none',
+      mozAppearance: 'none',
+      appearance: 'none',
+      transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+    },
   }
 
 

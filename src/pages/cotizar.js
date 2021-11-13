@@ -49,11 +49,10 @@ const Cotizar = ()=>{
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar
                 </Typography>
-                <Link to='/pedido' className={classes.button}  >
-                <Typography className={classes.title1}>
-                    Mi pedido
-                </Typography>
+                <Link to='/pedido'>
+                <button className={classes.button} >Mi pedido</button>
                 </Link>
+               
             </Box>
             <TablaCotizar/>
         </Container>

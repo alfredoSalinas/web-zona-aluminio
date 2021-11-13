@@ -26,8 +26,8 @@ const sides = {
 
 const sizes = {
   0: 0,
-  1: base * 0.25,
-  2: base * 0.5,
+  1: '1rem',
+  2: '2%',
   3: base,
   4: base * 1.5,
   5: base * 2,
@@ -151,6 +151,9 @@ const CommonProperties = {
   },
   xxSmall: {
     fontSize: FontSize.xxSmall,
+  },
+  borderRadius:{
+    borderRadius:'5px'
   },
   borderRadius1: {
     borderRadius: sizes['2'], // ~6
