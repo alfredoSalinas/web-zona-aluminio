@@ -4,22 +4,13 @@ import TablaCotizar from "../components/tablas/tablaCotizar";
 import { Link } from 'react-router-dom';
 import CommonStyles from "../common/styles/commonStyles";
 import Color from '../common/styles/colors'
+import CommonProperties from "../common/styles/commonProperties";
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
     button: {
         ...CommonStyles.link,
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        //fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
+        ...CommonProperties.button,
         padding: '0.5rem 1.5rem 0.5rem 1.5rem',
         backgroundColor: Color.primary,
         border: '1px solid #65FC15',

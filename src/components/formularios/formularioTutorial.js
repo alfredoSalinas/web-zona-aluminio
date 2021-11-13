@@ -2,65 +2,15 @@ import React, { useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 import archivo from "../../iconos/archivo.svg"
+import CommonStyles from "../../common/styles/commonStyles";
+import CommonProperties from "../../common/styles/commonProperties";
 
 const useStyles= makeStyles((theme) => ({
-    paper:{
-        padding: '2%'
-    },
-    label:{
-        textAlign: 'left',
-        paddingBottom: '0.5em',
-        paddingTop: '0.5em'
-      },
-      formControl :{
-        width: '96%',
-        padding: '2%',
-        fontSize: '1rem',
-        fontWeight: 400,
-        lineHeight: 1.5,
-        color: '#2A3B47',
-        backgroundColor: '#fff',
-        backgroundClip: 'padding-box',
-        border: '1px solid #949ba0',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: '0.5rem',
-        marginBottom: '1rem',
-        transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
-      },
-      containerBtnFile :{
-        width: '100%',
-        backgroundColor: '#fff',
-        color:'#949ba0',
-        border: '1px solid #949ba0',
-        borderStyle: 'dashed',
-        padding:'4% 2%',
-        borderRadius: 8,
-        overflow: 'hidden',
-        transition: 'ease-out 120ms background-color',
-        marginBottom: '1em',
-
-        "&:hover": {
-            border: '1px solid #2A3B47',
-            borderStyle: 'dashed',
-            color:'#2A3B47'
-          },
-    },
-    
+    ...CommonStyles,
     button: {
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
+        ...CommonProperties.button,
+        ...CommonProperties.borderRadius,
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
         backgroundColor: '#65FC15',
         border: '1px solid #65FC15',
         marginRight:'25%',
@@ -70,34 +20,18 @@ const useStyles= makeStyles((theme) => ({
             backgroundColor: '#84ff42',
           },
       },
-
-      
-    button1:{
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
+      button1:{
+        ...CommonProperties.button,
+        ...CommonProperties.borderRadius,
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
         backgroundColor: '#ee7171',
         border: '1px solid #ee7171',
 
         "&:hover": {
             border: '1px solid #fa7676',
             backgroundColor: '#fa7676',
-          },
+          }
     },
-    title:{
-        textAlign: 'center',
-        color: '#2A3B47',
-        marginBottom:'20px'
-      },
     imgArchivo:{
         width: 24,
         color: '#949ba0'
@@ -115,7 +49,7 @@ const FormularioTutorial = (eventos)=>{
 
 
     return(
-        <Paper className={classes.paper}>
+        <Paper className={classes.p2}>
             <Typography variant='h5' className={classes.title}>
                 Tutorial
             </Typography>
@@ -126,7 +60,7 @@ const FormularioTutorial = (eventos)=>{
             <label className={classes.label}>
                         Imagen
                     </label>
-                    <button className={classes.containerBtnFile}>
+                    <button className={classes.formControlFile}>
                         <i ></i>
                             <img src={archivo} className={classes.imgArchivo} alt="" />Sube la portada del video
                         <input type="file" id="btn-file" />

@@ -3,65 +3,14 @@ import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 import archivo from "../../iconos/archivo.svg"
 import CommonStyles from "../../common/styles/commonStyles";
+import CommonProperties from "../../common/styles/commonProperties";
 
 const useStyles= makeStyles((theme) => ({
     ...CommonStyles,
-      containerBtnFile :{
-        width: '100%',
-        backgroundColor: '#fff',
-        color:'#949ba0',
-        border: '1px solid #949ba0',
-        borderStyle: 'dashed',
-        padding:'4% 2%',
-        borderRadius: 8,
-        overflow: 'hidden',
-        transition: 'ease-out 120ms background-color',
-        marginBottom: '1em',
-
-        "&:hover": {
-            border: '1px solid #2A3B47',
-            borderStyle: 'dashed',
-            color:'#2A3B47'
-          },
-    },
-    
-    button: {
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
-        marginRight:'25%',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
-      },
-
-      
       button1:{
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
+        ...CommonProperties.button,
+        ...CommonProperties.borderRadius, 
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
         backgroundColor: '#ee7171',
         border: '1px solid #ee7171',
 
@@ -99,7 +48,7 @@ const FormularioProducto = (eventos)=>{
                     <label className={classes.label}>
                         Foto
                     </label>
-                    <button className={classes.containerBtnFile}>
+                    <button className={classes.formControlFile}>
                         <i ></i>
                             <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
                         <input type="file" id="btn-file" />
@@ -201,7 +150,7 @@ const FormularioProducto = (eventos)=>{
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center' marginTop='20px'>
-                <button className={classes.button}>Aceptar</button>
+                <button className={classes.buttonAceptar}>Aceptar</button>
                 <button className={classes.button1} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>

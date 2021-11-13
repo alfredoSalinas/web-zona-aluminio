@@ -83,7 +83,7 @@ const CommonStyles =
       width: (width * 85) / 100,
     },
     formControl :{
-      width: '100%',
+      width: '96%',
       ...CommonProperties.p2,
       ...CommonProperties.borderRadius,
       ...CommonProperties.mb1,
@@ -105,23 +105,45 @@ const CommonStyles =
       ...CommonProperties.textLeft
     },
     formControlFile :{
+      ...CommonProperties.mb1,
+      ...CommonProperties.borderRadius,
       width: '100%',
       backgroundColor: Color.white,
       color: Color.grisLight,
       border: '1px solid #949ba0',
       borderStyle: 'dashed',
       padding:'4% 2%',
-      borderRadius: 8,
       overflow: 'hidden',
       transition: 'ease-out 120ms background-color',
-      marginBottom: '1em',
 
       "&:hover": {
           border: '1px solid #2A3B47',
           borderStyle: 'dashed',
-          color:'#2A3B47'
+          color: Color.grisLight
         },
     },
+    buttonAceptar:{
+      ...CommonProperties.borderRadius,
+        color: Color.secondary,
+        fontWeight: 400,
+        fontFamily: 'MyriadPro',
+        fontSize:'1rem',
+        backgroundClip: 'padding-box',
+        cursor: 'pointer',
+        webkitAppearance: 'none',
+        mozAppearance: 'none',
+        appearance: 'none',
+        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
+        backgroundColor: '#65FC15',
+        border: '1px solid #65FC15',
+        marginRight:'25%',
+
+        "&:hover": {
+            border: '1px solid #84ff42',
+            backgroundColor: '#84ff42',
+          },
+    }
   }
 
 
