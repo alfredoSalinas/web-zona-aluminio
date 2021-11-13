@@ -25,7 +25,7 @@ const sides = {
 };
 
 const sizes = {
-  0:'0.5em',
+  0:'0.5%',
   1: '1rem',
   2: '2%',
   20: '20px',

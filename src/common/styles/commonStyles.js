@@ -72,6 +72,11 @@ const CommonStyles =
       ...CommonProperties.textCenter,
       color: Color.grisDark
     },
+    title1:{
+      ...CommonProperties.mt0,
+      ...CommonProperties.textLeft,
+      color: Color.grisDark
+    },
     link : {
       textDecoration:'none', 
       color:'inherit'
@@ -82,6 +87,9 @@ const CommonStyles =
     inputWidth: {
       width: (width * 85) / 100,
     },
+
+    /*forms*/
+
     formControl :{
       width: '96%',
       ...CommonProperties.p2,
@@ -122,18 +130,100 @@ const CommonStyles =
           color: Color.grisLight
         },
     },
-    button:{
+
+    /*buttons*/
+
+    buttonPrimary:{
       ...CommonProperties.h3,
+      ...CommonProperties.borderRadius,
         fontWeight: 400,
-        fontFamily: 'MyriadPro',
         color: Color.secondary,
         backgroundClip: 'padding-box',
         cursor: 'pointer',
         webkitAppearance: 'none',
         mozAppearance: 'none',
         appearance: 'none',
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem'
-    }
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
+        backgroundColor: '#65FC15',
+        border: '1px solid #65FC15',
+
+        "&:hover": {
+          border: '1px solid #84ff42',
+          backgroundColor: '#84ff42',
+        },
+    },
+    buttonSecondary:{
+      ...CommonProperties.h3,
+      ...CommonProperties.borderRadius,
+        fontWeight: 400,
+        color: Color.secondary,
+        backgroundClip: 'padding-box',
+        cursor: 'pointer',
+        webkitAppearance: 'none',
+        mozAppearance: 'none',
+        appearance: 'none',
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
+        backgroundColor: '#ee7171',
+        border: '1px solid #ee7171',
+
+        "&:hover": {
+          border: '1px solid #fa7676',
+          backgroundColor: '#fa7676',
+        },
+    },
+    buttonTerciary:{
+      ...CommonProperties.h3,
+      ...CommonProperties.borderRadius,
+        fontWeight: 400,
+        color: Color.secondary,
+        backgroundClip: 'padding-box',
+        cursor: 'pointer',
+        webkitAppearance: 'none',
+        mozAppearance: 'none',
+        appearance: 'none',
+        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
+        backgroundColor: '#ff9065',
+        border: '1px solid #ff9065',
+
+        "&:hover": {
+          border: '1px solid #ff986f',
+          backgroundColor: '#ff986f',
+        },
+    },
+
+    /*modals*/
+
+    modal: {
+      ...CommonProperties.centerAlignment,
+      display: 'flex',
+    },
+
+    /*tables*/
+
+    table:{
+      width: '100%'
+    },
+    td:{
+      ...CommonProperties.borderRadius,
+      ...CommonProperties.textLeft,
+      padding:5,
+      color: Color.grisDark,
+      border: '1px solid #949ba0',
+      fontSize: '1.1em'
+    },
+    tdCenter:{
+      ...CommonProperties.borderRadius,
+      ...CommonProperties.textCenter,
+      color: Color.grisDark,
+      border: '1px solid #949ba0',
+      fontSize: '1.1em',
+      padding: 5
+    },
+    th:{
+      color: Color.grisDark,
+      fontSize: '1em'
+  },
+    
   }
 
 

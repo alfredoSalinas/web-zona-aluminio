@@ -3,6 +3,7 @@ import {makeStyles, Select, MenuItem} from "@material-ui/core";
 import MiIcon from "../icon";
 import editIcon from "../../iconos/editar.svg";
 import delIcon from "../../iconos/eliminar.svg"
+import CommonStyles from "../../common/styles/commonStyles";
 
 const TablaPedido = ()=>{
     
@@ -22,56 +23,11 @@ const TablaPedido = ()=>{
     ]
 
     const useStyles = makeStyles((theme) => ({
-        td:{
-            border: '1px solid #949ba0',
-            borderRadius: 8,
-            color: '#2A3B47',
-            fontSize: '1.1em',
-            textAlign: 'left',
-            padding: 5
-          },
-          td1:{
-            border: '1px solid #949ba0',
-            borderRadius: 8,
-            color: '#2A3B47',
-            fontSize: '1.1em',
-            textAlign: 'center',
-            padding: 5
-          },
+        ...CommonStyles,
+
           td2:{
-            border: '1px solid #949ba0',
-            borderRadius: 8,
-            color: '#2A3B47',
-            fontSize: '1.1em',
-            textAlign: 'right',
+            ...CommonStyles.tdCenter,
             width: 50
-          },
-          table:{
-            width: '100%'
-            },
-        th:{
-            color: '#2A3B47',
-            fontSize: '1em'
-        },
-        link:{
-            fontSize: '1.1em',
-            color: '#32A2F1',
-            textDecoration: 'underline',
-            
-            "&:hover": {
-                cursor: 'pointer',
-                color: '#329be6e5'
-              },
-          },
-          formControl :{
-            fontSize: '1rem',
-            color: '#2A3B47',
-            border:'#fff',
-            backgroundClip: 'padding-box',
-            webkitAppearance: 'none',
-            mozAppearance: 'none',
-            appearance: 'none',
-            transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
           },
           formControl1 :{
             fontSize: '1rem',
@@ -107,9 +63,9 @@ const TablaPedido = ()=>{
             {
                 datos.map((item, i) => 
                 <tr key={i}>
-                <td className={classes.td1}>{i + 1}</td>
-                <td className={classes.td1}>{item.producto}</td>
-                <td className={classes.td1}>{item.color}
+                <td className={classes.tdCenter}>{i + 1}</td>
+                <td className={classes.tdCenter}>{item.producto}</td>
+                <td className={classes.tdCenter}>{item.color}
                     <Select
                         labelId="demo-simple-select-disabled-label"
                         id="demo-simple-select-disabled"
@@ -124,7 +80,7 @@ const TablaPedido = ()=>{
                         <MenuItem value={60}>Sin color</MenuItem>
                     </Select>  
                 </td>
-                <td className={classes.td1}>{item.unidad}</td>
+                <td className={classes.tdCenter}>{item.unidad}</td>
                 <td className={classes.td2}>{item.cantidad}
                     <input type="number" className={classes.formControl1} />
                 </td>

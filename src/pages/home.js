@@ -11,7 +11,7 @@ import Cards from "../components/cards";
 const Home = ()=>{
     return(
         <Container>
-           <Productos/>
+           <TablaPortada/>
         </Container>
     )
 }

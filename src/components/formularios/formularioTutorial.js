@@ -8,29 +8,8 @@ import CommonProperties from "../../common/styles/commonProperties";
 const useStyles= makeStyles((theme) => ({
     ...CommonStyles,
     button: {
-        ...CommonProperties.button,
-        ...CommonProperties.borderRadius,
-        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
+        ...CommonStyles.buttonPrimary,
         marginRight:'25%',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
-      },
-      button1:{
-        ...CommonProperties.button,
-        ...CommonProperties.borderRadius,
-        padding: '0.7rem 1.5rem 0.7rem 1.5rem',
-        backgroundColor: '#ee7171',
-        border: '1px solid #ee7171',
-
-        "&:hover": {
-            border: '1px solid #fa7676',
-            backgroundColor: '#fa7676',
-          }
     },
     imgArchivo:{
         width: 24,
@@ -71,7 +50,7 @@ const FormularioTutorial = (eventos)=>{
             <input type="text" className={classes.formControl} name="precio"/>
             <Box display='flex' justifyContent='center' marginTop='20px'>
                 <button className={classes.button}>Aceptar</button>
-                <button className={classes.button1} onClick={eventos.onClick}>Cancelar</button>
+                <button className={classes.buttonSecondary} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>
     )

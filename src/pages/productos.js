@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Cards from '../components/cards'
 import foto from '../images/aluminio.png'
 import ProductSelect from "../components/productSelect";
+import CommonStyles from "../common/styles/commonStyles";
 
 const misproductos = [
     {
@@ -51,46 +52,13 @@ const misproductos = [
 ]
 
 const useStyles = makeStyles((theme) => ({
+    ...CommonStyles,
         root: {
           flexGrow: 1,
         },
-        paper: {
-          height: 140,
-          width: 100,
-        },
         control: {
           padding: theme.spacing(2),
-        },
-        container:{
-            marginTop:'2%'
-          },
-    button: {
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
-      },
-
-      title:{
-        textAlign: 'start',
-        color: '#2A3B47',
-        marginRight: 50
-      }
+        }
   }));
 
 const Productos = ()=>{
@@ -119,9 +87,9 @@ const Productos = ()=>{
     }
 
     return(
-        <Container className={classes.container}>
+        <Container className={classes.mt2}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
-                <Typography variant='h5' className={classes.title}>
+                <Typography variant='h5' className={classes.title1}>
                     Productos
                 </Typography>
                 <ProductSelect buscar={buscarProducto}/>

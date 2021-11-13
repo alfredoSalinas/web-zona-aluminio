@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {Box, Container, makeStyles, Typography} from '@material-ui/core';
-import TablaPortada from "../components/tablas/tablaPortada";
+import TablaTutoriales from "../components/tablas/tablaTutoriales";
+import ModalTutorial from "../components/modales/modalTutorial";
 import CommonStyles from "../common/styles/commonStyles";
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
   }));
 
-const Portadas = ()=>{
+const Tutoriales = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
 
@@ -22,12 +23,14 @@ const Portadas = ()=>{
         <Container className={classes.mt2}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
-                    Portadas
+                    Tutoriales
                 </Typography>
+                <button className={classes.buttonPrimary} onClick={()=>handleOpen(null)}>Añadir tutorial</button>
             </Box>
-            <TablaPortada/>
+            <ModalTutorial open={open} handleClose={handleClose} />
+            <TablaTutoriales/>
         </Container>
     )
 }
 
-export default Portadas
+export default Tutoriales
