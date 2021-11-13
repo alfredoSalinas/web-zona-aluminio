@@ -7,36 +7,13 @@ import Color from '../common/styles/colors'
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
-    button: {
-        ...CommonStyles.link,
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        //fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: Color.primary,
-        border: '1px solid #65FC15',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
-      },
-      
-      title1:{
+    title1:{
         textAlign: 'start',
         color: '#2A3B47'
-      },
-      container:{
+    },
+    container:{
         marginTop:'2%'
-      },
+    },
   }));
 
 const Cotizar = ()=>{
@@ -49,8 +26,8 @@ const Cotizar = ()=>{
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar
                 </Typography>
-                <Link to='/pedido' className={classes.button}  >
-                <Typography className={classes.title1}>
+                <Link to='/pedido' className={classes.link}  >
+                <Typography className={classes.textButton}>
                     Mi pedido
                 </Typography>
                 </Link>

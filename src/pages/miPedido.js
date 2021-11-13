@@ -4,30 +4,10 @@ import TablaTutoriales from "../components/tablas/tablaTutoriales";
 import ModalTutorial from "../components/modales/modalTutorial";
 import TablaPedido from "../components/tablas/tablaPedido";
 import { Link } from 'react-router-dom';
+import CommonStyles from "../common/styles/commonStyles";
 
 const useStyles = makeStyles((theme) => ({
-    button: {
-        height: 40,
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'MyriadPro',
-        color: '#1F1D1D',
-        backgroundClip: 'padding-box',
-        cursor: 'pointer',
-        webkitAppearance: 'none',
-        mozAppearance: 'none',
-        appearance: 'none',
-        borderRadius: 5,
-        padding: '0.5rem 1.5rem 0.5rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
-
-        "&:hover": {
-            border: '1px solid #84ff42',
-            backgroundColor: '#84ff42',
-          },
-      },
-      
+    ...CommonStyles,  
       title:{
         textAlign: 'start',
         color: '#2A3B47'
@@ -46,8 +26,10 @@ const MiPedido = ()=>{
                 <Typography variant='h5' className={classes.title}>
                     Mi Pedido
                 </Typography>
-                <Link to='/cotizar' style={{textDecoration:'none', color:'inherit'}} >
-                <button className={classes.button} >Atras</button>
+                <Link to='/cotizar' className={classes.link} >
+                <Typography className={classes.textButton}>
+                    Atras
+                </Typography>
                 </Link>
             </Box>
             <TablaPedido/>

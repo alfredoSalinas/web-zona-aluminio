@@ -71,12 +71,36 @@ const CommonStyles =
       ...CommonProperties.bold,
       ...CommonProperties.mt3,
       ...CommonProperties.h3,
-      color: Color.primary,
+      color: Color.black,
       textTransform: 'uppercase',
+    },
+    textButton : {
+      ...CommonProperties.mt3,
+      color: Color.grayText,
     },
     link : {
       textDecoration:'none', 
-      color:'inherit'
+      height: 40,
+        fontSize: '1rem',
+        fontWeight: 400,
+        //fontFamily: 'MyriadPro',
+        //color: '#1F1D1D',
+        backgroundClip: 'padding-box',
+        cursor: 'pointer',
+        webkitAppearance: 'none',
+        mozAppearance: 'none',
+        appearance: 'none',
+        borderRadius: 5,
+        //padding: '0.5rem 1.5rem 0.5rem 1.5rem',
+        ...CommonProperties.pr5,
+        ...CommonProperties.pl5,
+        backgroundColor: Color.primary,
+        border: '1px solid #65FC15',
+
+        "&:hover": {
+            border: '1px solid #84ff42',
+            backgroundColor: '#84ff42',
+          },
     },
     colorPrimary: {
       color: Color.primary,
