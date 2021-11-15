@@ -53,7 +53,7 @@ export default function Header() {
 
   const handleClickAdmin = (newPlacement) => (event) => {
     setAnchorAdmin(event.currentTarget);
-    setOpenAdmin((prev) => placement !== newPlacement || !prev);
+    setOpenAdmin(true);
     setPlacement(newPlacement);
   };
 
@@ -65,6 +65,9 @@ export default function Header() {
     setAnchorEl(null);
   }
 
+  const handleCloseAdmin = ()=>{
+    setOpenAdmin(false)
+  }
 
 
   return (
@@ -90,18 +93,16 @@ export default function Header() {
                 <Link to='/tutoriales' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Tutoriales</Button>
                 </Link>
-                <Link to='/adminProductos' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit' onClick={handleClickAdmin('right-start')}>
                   Admin
                 </Button>
-                </Link>
             </Box>
             </Box>
             <Button variant="outlined" color='inherit'>Registrarme</Button>
         </Toolbar>
       </AppBar>
         
-        <MenuAdmin anchorEl={anchorAdmin} handleClick={handleClose} />
+        <MenuAdmin open={openAdmin} anchorEl={anchorAdmin} handleClose={handleCloseAdmin} />
       </div>
   );
 }

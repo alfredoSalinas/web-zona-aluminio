@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Menu, MenuItem } from '@material-ui/core';
 import MenuAluminio from "./menuAluminio";
 import MenuVidrio from "./menuVidrio";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
       '& .MuiPaper-root':{
           backgroundColor:'#1F1D1D',
           color:'#ffff',
-          marginTop:'57px'
       }
     },
     menuItem:{
@@ -32,15 +32,23 @@ const MenuAdmin = (props)=>{
             id="simple-menu"
             anchorEl={props.anchorEl}
             keepMounted
-            open={Boolean(props.anchorEl)}
-            onClose={props.handleClose}
+            open={props.open}
+            onBlur={props.handleClose}
         >
-            <MenuItem className={classes.menuItem} onClick={props.onClick} >
+            <Link to='/adminProductos' 
+              style={{textDecoration:'none', color:'inherit'}}
+              onClick={props.handleClose}>
+            <MenuItem className={classes.menuItem}>
                 Productos
             </MenuItem>
-            <MenuItem className={classes.menuItem} onClick={props.handleClose}>
+            </Link>
+            <Link to='/adminTutoriales' 
+              style={{textDecoration:'none', color:'inherit'}}
+              onClick={props.handleClose}>
+            <MenuItem className={classes.menuItem}>
                 Tutoriales
             </MenuItem>
+            </Link>
         </Menu>
         </>
     )
