@@ -94,7 +94,7 @@ const Cards = (props)=> {
           <Typography className={classes.texto} align='center'>Jamba</Typography>
           <Typography className={classes.mb4} align='center'>{props.tarjeta.description}</Typography>
           <div className={classes.boton}>
-            Añadir a Cotizacion
+            Añadir a Cotización
           </div>
         </Box>
       </Paper>

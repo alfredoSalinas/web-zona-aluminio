@@ -58,7 +58,7 @@ const TablaPedido = ()=>{
                 <th className={classes.th}>Color</th>
                 <th className={classes.th}>Unidad</th>
                 <th className={classes.th}>Cantidad</th>
-                <th></th>
+                <th className={classes.th}>Borrar</th>
 
             {
                 datos.map((item, i) => 

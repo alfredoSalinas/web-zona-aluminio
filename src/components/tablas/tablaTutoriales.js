@@ -43,8 +43,7 @@ const TablaTutoriales = ()=>{
                 <th className={classes.th}>Titulo</th>
                 <th className={classes.th}>Imagen</th>
                 <th className={classes.th}>Enlace</th>
-                <th></th>
-                <th></th>
+                <th className={classes.th}>Borrar</th>
 
             {
                 datos.map((item, i) => 

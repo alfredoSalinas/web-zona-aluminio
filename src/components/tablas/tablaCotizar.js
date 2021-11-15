@@ -1,8 +1,7 @@
 import React from "react";
 import {makeStyles, } from "@material-ui/core";
 import MiIcon from "../icon";
-import editIcon from "../../iconos/editar.svg";
-import delIcon from "../../iconos/eliminar.svg"
+import addIcon from "../../iconos/añadirVerde.svg"
 import CommonStyles from "../../common/styles/commonStyles";
 
 const TablaCotizar = ()=>{
@@ -30,7 +29,7 @@ const TablaCotizar = ()=>{
                 <th className={classes.th}>Nro.</th>
                 <th className={classes.th}>Producto</th>
                 <th className={classes.th}>Unidad</th>
-                <th></th>
+                <th className={classes.th}>Añadir</th>
 
             {
                 datos.map((item, i) => 
@@ -40,7 +39,7 @@ const TablaCotizar = ()=>{
                 <td className={classes.tdCenter}>{item.unidad}</td>
                 <td className={classes.td} style={{border:0, width:30}}>
                     <MiIcon >
-                        <img src={delIcon} width='25px' alt=""/>
+                        <img src={addIcon} width='25px' alt=""/>
                     </MiIcon>
                 </td>
             </tr>

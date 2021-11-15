@@ -27,6 +27,7 @@ const Tutoriales = ()=>{
                 </Typography>
                 <button className={classes.buttonPrimary} onClick={()=>handleOpen(null)}>Añadir tutorial</button>
             </Box>
+            <TablaTutoriales/>
         </Container>
     )
 }

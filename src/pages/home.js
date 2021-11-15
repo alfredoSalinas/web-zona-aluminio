@@ -7,11 +7,12 @@ import Tutoriales from "./tutoriales";
 import TablaPortada from "../components/tablas/tablaPortada";
 import Portadas from "./portadas";
 import Cards from "../components/cards";
+import TablaTutoriales from "../components/tablas/tablaTutoriales";
 
 const Home = ()=>{
     return(
         <Container>
-           <TablaPortada/>
+           <TablaTutoriales/>
         </Container>
     )
 }

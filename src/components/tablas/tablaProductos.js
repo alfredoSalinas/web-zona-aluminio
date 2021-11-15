@@ -33,8 +33,8 @@ const TablaProductos = ()=>{
                 <th className={classes.th}>Codigo</th>
                 <th className={classes.th}>Descripción</th>
                 <th className={classes.th}>Precio</th>
-                <th></th>
-                <th></th>
+                <th className={classes.th}>Editar</th>
+                <th className={classes.th}>Borrar</th>
 
             {
                 datos.map((item, i) => 

@@ -182,12 +182,12 @@ const CommonStyles =
         mozAppearance: 'none',
         appearance: 'none',
         padding: '0.7rem 1.5rem 0.7rem 1.5rem',
-        backgroundColor: '#a6b3bd',
-        border: '1px solid #a6b3bd',
+        backgroundColor: Color.grisLight,
+        border: '1px solid #949ba0',
 
         "&:hover": {
-          border: '1px solid #dce1e4',
-          backgroundColor: '#dce1e4',
+          border: '1px solid #b5bbc0',
+          backgroundColor: '#b5bbc0',
         },
     },
 
