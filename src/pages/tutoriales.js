@@ -3,6 +3,7 @@ import {Box, Container, makeStyles, Typography} from '@material-ui/core';
 import TablaTutoriales from "../components/tablas/tablaTutoriales";
 import ModalTutorial from "../components/modales/modalTutorial";
 import CommonStyles from "../common/styles/commonStyles";
+import CommonProperties from "../common/styles/commonProperties";
 import CardTutorial from "../common/components/cardTutorial";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,6 @@ const Tutoriales = ()=>{
                 <Typography variant='h5' className={classes.title1}>
                     Tutoriales
                 </Typography>
-                <button className={classes.buttonPrimary} onClick={()=>handleOpen(null)}>Añadir tutorial</button>
             </Box>
             <CardTutorial/>
         </Container>

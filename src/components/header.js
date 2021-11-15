@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../images/logo.png'
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
-import MenuProductos from './menus/menuProductos';
+import MenuAdmin from './menus/menuAdmin';
 import { Link } from 'react-router-dom';
 
 
@@ -47,6 +47,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorAdmin, setAnchorAdmin] = React.useState(null);
+  const [openAdmin, setOpenAdmin] = React.useState(false);
+  const [placement, setPlacement] = React.useState();
+
+  const handleClickAdmin = (newPlacement) => (event) => {
+    setAnchorAdmin(event.currentTarget);
+    setOpenAdmin((prev) => placement !== newPlacement || !prev);
+    setPlacement(newPlacement);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -82,7 +91,9 @@ export default function Header() {
                 <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Tutoriales</Button>
                 </Link>
                 <Link to='/adminProductos' style={{textDecoration:'none', color:'inherit'}}>
-                <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit'>AdminProductos</Button>
+                <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit' onClick={handleClickAdmin('right-start')}>
+                  Admin
+                </Button>
                 </Link>
             </Box>
             </Box>
@@ -90,7 +101,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
         
-        <MenuProductos anchorEl={anchorEl} handleClose={handleClose} />
+        <MenuAdmin anchorEl={anchorAdmin} handleClick={handleClose} />
       </div>
   );
 }
