@@ -76,9 +76,11 @@ export default function Header() {
         <Toolbar style={{display:'flex', justifyContent:'space-between'}} >
           <Box display='flex' alignItems='center'>
             <Box display='flex' justifyContent='flex-start'>
+            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{marginRight:'60px'}}>
                     <img height='60px' src={logo}/>
                 </Button>
+              </Link>
             </Box>
             <Box display='flex' justifyContent='flex-start'>
                 <Link to='/productos' style={{textDecoration:'none', color:'inherit'}}>
