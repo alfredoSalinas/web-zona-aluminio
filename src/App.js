@@ -14,6 +14,7 @@ import Tutoriales from './pages/tutoriales'
 import AdminProductos from './pages/adminProductos';
 import AdminTutoriales from './pages/adminTutoriales'
 import MiPedido from './pages/miPedido';
+import Barra from './components/barra';
 
 
 function App() {

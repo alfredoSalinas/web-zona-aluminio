@@ -21,7 +21,7 @@ const AdminProductos = ()=>{
         setOpen(false)
     }
     return(
-        <Container className={classes.mt2}>
+        <Container className={classes.mt4}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Productos

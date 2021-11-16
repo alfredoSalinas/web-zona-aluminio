@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -72,7 +73,7 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.fondo} >
+      <AppBar position="fixed" className={classes.fondo} >
         <Toolbar style={{display:'flex', justifyContent:'space-between'}} >
           <Box display='flex' alignItems='center'>
             <Box display='flex' justifyContent='flex-start'>

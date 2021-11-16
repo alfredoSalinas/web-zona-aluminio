@@ -49,6 +49,13 @@ const MenuAdmin = (props)=>{
                 Tutoriales
             </MenuItem>
             </Link>
+            <Link to='/portadas' 
+              style={{textDecoration:'none', color:'inherit'}}
+              onClick={props.handleClose}>
+            <MenuItem className={classes.menuItem}>
+                Portadas
+            </MenuItem>
+            </Link>
         </Menu>
         </>
     )

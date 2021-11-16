@@ -7,6 +7,7 @@ import Cards from '../components/cards'
 import foto from '../images/aluminio.png'
 import ProductSelect from "../components/productSelect";
 import CommonStyles from "../common/styles/commonStyles";
+import barra from "../images/barra8.png"
 
 const misproductos = [
     {
@@ -58,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
         },
         control: {
           padding: theme.spacing(2),
+        },
+        box:{
+            backgroundImage: `url(${barra})`
         }
   }));
 
@@ -87,7 +91,7 @@ const Productos = ()=>{
     }
 
     return(
-        <Container className={classes.mt2}>
+        <Container className={classes.mt4}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Productos

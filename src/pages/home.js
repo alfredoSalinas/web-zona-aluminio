@@ -1,19 +1,31 @@
 import React from "react";
-import {Container, Modal } from "@material-ui/core";
-import FormularioProducto from "../components/formularios/formularioProducto";
-import ModalProducto from "../components/modales/modalProducto";
-import Productos from "./productos";
-import Tutoriales from "./tutoriales";
-import TablaPortada from "../components/tablas/tablaPortada";
-import Portadas from "./portadas";
-import Cards from "../components/cards";
-import TablaTutoriales from "../components/tablas/tablaTutoriales";
+import {Container, Modal, Box, makeStyles  } from "@material-ui/core";
+import portada from "../images/principal.png"
+import marcas from "../images/PORTADA 3.1.png"
+import tarjeta from "../images/portada.jpg"
+import CommonStyles from "../common/styles/commonStyles";
+
+const useStyles = makeStyles((theme) => ({
+   
+    
+  }));
+  
 
 const Home = ()=>{
+    const classes = useStyles()
     return(
-        <Container>
-           <TablaTutoriales/>
-        </Container>
+        <Box>
+            <Box>
+                <img width='100%' src={portada}/>
+            </Box>
+            <Box>
+                <img width='100%' src={marcas}/>
+            </Box>
+            <Box>
+                <img width='100%' src={tarjeta}/>
+            </Box>
+        </Box>
+       
     )
 }
 
