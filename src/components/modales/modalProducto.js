@@ -4,24 +4,10 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import {makeStyles} from '@material-ui/core';
 import FormularioProducto from '../formularios/formularioProducto';
+import CommonStyles from "../../common/styles/commonStyles";
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    width:'80%',
-    padding:'15px', 
-    display:'flex', 
-    fontFamily: 'MyriadPro',
-    flexDirection:'column', 
-    justifyContent:'center',
-    alignItems:'center',
-  },
+  ...CommonStyles,
 }));
 
 export default function ModalProducto(props) {

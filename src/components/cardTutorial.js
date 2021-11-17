@@ -1,13 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Paper, Typography } from '@material-ui/core';
-import foto from "../images/aluminio.png"
-
+import foto from "../../images/imagenTutorial.jpg"
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: 80,
   },
   paper: {
     width: 240,
@@ -28,9 +28,12 @@ const useStyles = makeStyles((theme) => ({
   },
   box:{
     display:'flex',
+    justifyContent: 'center',
+    alignContent:'center',
+    textAlign:'center',
     width:'96%',
-    height:30,
-    backgroundColor: '#ffff',
+    backgroundColor: '#fff',
+    color:'#212529',
     padding:'2%'
   },
   box1:{
@@ -66,34 +69,39 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#65FC15',
         color:'#1F1D1D'
       }
-    },
-    texto:{
+    }, 
+  link:{
+    fontSize: '1.1em',
+    color: '#fff',
+    textDecoration: 'underline',
+    
+    "&:hover": {
+        cursor: 'pointer',
+        color: '#65FC15'
+      },
+  },
+  texto:{
     fontSize: '1.2rem',
     fontWeight: 700,
     marginBottom:'2%'
     },
-  mb4:{
-    marginBottom:'4%'
-  }
   
 }));
 
-const Cards = (props)=> {
+const CardTutorial = ()=> {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Box className={classes.box}>
-          <div>{props.tarjeta.codigo}</div>
+            <Typography className={classes.texto} align='center'>COMO HACER UNA VENTANA CORREDIZA</Typography>
         </Box>
         <Box>
-          <img height='200px' width='100%' src={props.tarjeta.foto}/>
+          <img height='200px' width='100%' src={foto}/>
         </Box>
         <Box className={classes.box1}>
-          <Typography className={classes.texto} align='center'>Jamba</Typography>
-          <Typography className={classes.mb4} align='center'>{props.tarjeta.description}</Typography>
-          <div className={classes.boton}>
-            Añadir a Cotización
+            <div className={classes.boton}>
+                Ver Tutorial
           </div>
         </Box>
       </Paper>
@@ -101,4 +109,4 @@ const Cards = (props)=> {
   );
 }
 
-export default Cards
+export default CardTutorial

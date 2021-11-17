@@ -5,13 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import logo from '../images/logo.png'
 import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
-import MenuProductos from './menus/menuProductos';
+import MenuAdmin from './menus/menuAdmin';
 import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -47,6 +48,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorAdmin, setAnchorAdmin] = React.useState(null);
+  const [openAdmin, setOpenAdmin] = React.useState(false);
+  const [placement, setPlacement] = React.useState();
+
+  const handleClickAdmin = (newPlacement) => (event) => {
+    setAnchorAdmin(event.currentTarget);
+    setOpenAdmin(true);
+    setPlacement(newPlacement);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -56,17 +66,22 @@ export default function Header() {
     setAnchorEl(null);
   }
 
+  const handleCloseAdmin = ()=>{
+    setOpenAdmin(false)
+  }
 
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.fondo} >
+      <AppBar position="fixed" className={classes.fondo} >
         <Toolbar style={{display:'flex', justifyContent:'space-between'}} >
           <Box display='flex' alignItems='center'>
             <Box display='flex' justifyContent='flex-start'>
+            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{marginRight:'60px'}}>
                     <img height='60px' src={logo}/>
                 </Button>
+              </Link>
             </Box>
             <Box display='flex' justifyContent='flex-start'>
                 <Link to='/productos' style={{textDecoration:'none', color:'inherit'}}>
@@ -81,16 +96,16 @@ export default function Header() {
                 <Link to='/tutoriales' style={{textDecoration:'none', color:'inherit'}}>
                 <Button style={{textTransform: 'capitalize', fontSize:'1em', marginRight:'40px'}} color='inherit'>Tutoriales</Button>
                 </Link>
-                <Link to='/adminProductos' style={{textDecoration:'none', color:'inherit'}}>
-                <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit'>AdminProductos</Button>
-                </Link>
+                <Button style={{textTransform: 'capitalize', fontSize:'1em'}} color='inherit' onClick={handleClickAdmin('right-start')}>
+                  Admin
+                </Button>
             </Box>
             </Box>
             <Button variant="outlined" color='inherit'>Registrarme</Button>
         </Toolbar>
       </AppBar>
         
-        <MenuProductos anchorEl={anchorEl} handleClose={handleClose} />
+        <MenuAdmin open={openAdmin} anchorEl={anchorAdmin} handleClose={handleCloseAdmin} />
       </div>
   );
 }

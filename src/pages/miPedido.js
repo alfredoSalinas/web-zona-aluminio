@@ -7,35 +7,27 @@ import { Link } from 'react-router-dom';
 import CommonStyles from "../common/styles/commonStyles";
 
 const useStyles = makeStyles((theme) => ({
-    ...CommonStyles,  
-      title:{
-        textAlign: 'start',
-        color: '#2A3B47'
-      },
-      container:{
-        marginTop:'2%'
-      },
+    ...CommonStyles,
+    
   }));
 
 const MiPedido = ()=>{
     const classes = useStyles()
     
     return(
-        <Container className={classes.container}>
+        <Container className={classes.mt4}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
-                <Typography variant='h5' className={classes.title}>
+                <Typography variant='h5' className={classes.title1}>
                     Mi Pedido
                 </Typography>
-                <Link to='/cotizar' className={classes.link} >
-                <Typography className={classes.textButton}>
-                    Atras
-                </Typography>
+                <Link to='/cotizar' style={{textDecoration:'none', color:'inherit'}} >
+                <button className={classes.buttonPrimary} >Atras</button>
                 </Link>
             </Box>
             <TablaPedido/>
             <Box display='flex' justifyContent='space-between' marginLeft='20%' marginRight='20%' marginTop='5%'>
-                <button className={classes.button} >Enviar pedido</button>
-                <button className={classes.button} >Imprimir pedido</button>
+                <button className={classes.buttonPrimary} >Enviar pedido</button>
+                <button className={classes.buttonTerciary} >Imprimir pedido</button>
             </Box>
         </Container>
     )

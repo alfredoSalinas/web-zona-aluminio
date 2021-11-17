@@ -3,7 +3,7 @@
 const FontSize = Object.freeze({
   h1: (Math.round(28 * 0.8)),
   h2: (Math.round(24 * 0.8)),
-  h3: (Math.round(18 * 0.8)),
+  h3: (Math.round(20 * 0.8)),
   h4: (Math.round(16 * 0.8)),
   body: (Math.round(14 * 0.8)),
   small: (Math.round(13 * 0.8)),

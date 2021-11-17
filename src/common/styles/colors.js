@@ -1,8 +1,8 @@
 const Colors = Object.freeze({
   primary: '#65FC15',
-  secondary: '#000000',
-  grisDark: '#707070',
-  grisLight: '#EFEFF4',
+  secondary: '#1F1D1D',
+  grisDark: '#2A3B47',
+  grisLight: '#949ba0',
   green: '#7ED321',
   active: '#2e639c',
   required: '#FA2F4B',
