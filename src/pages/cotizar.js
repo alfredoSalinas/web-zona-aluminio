@@ -8,6 +8,10 @@ import CommonStyles from "../common/styles/commonStyles";
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
+    title1:{
+        textAlign: 'start',
+        color: '#2A3B47'
+    }
   }));
 
 const Cotizar = ()=>{
@@ -15,7 +19,7 @@ const Cotizar = ()=>{
     //const commonStyles = CommonStyles()
     
     return(
-        <Container className={classes.mt4}>
+        <Container className={classes.mt6}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar

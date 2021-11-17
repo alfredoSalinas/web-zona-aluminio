@@ -31,6 +31,7 @@ const sizes = {
   20: '20px',
   4: '4%',
   5: base * 2,
+  6: base * 3
 };
 
 const getSpacing = () => {
