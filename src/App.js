@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { db } from './services/firebase/setup'
 import {
   BrowserRouter as Router,
   Route,
@@ -15,11 +16,43 @@ import AdminProductos from './pages/adminProductos';
 import AdminTutoriales from './pages/adminTutoriales'
 import MiPedido from './pages/miPedido';
 import Barra from './components/barra';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk';
+import productReducer from './store/reducers/product.reducer'
+import clientReducer from './store/reducers/client.reducer'
+import quoteReducer from './store/reducers/quote.reducer'
+import authReducer from './store/reducers/auth.reducer';
+import adminReducer from './store/reducers/admin.reducer'
+import fotosReducer from './store/reducers/fotos.reducer';
+import { signIn, signOut, authReady } from './store/actions/auth.actions';
+import { isAdmin } from './store/actions/admin.actions';
+
+
+const allReducers = combineReducers({
+  admin: adminReducer,
+  auth: authReducer,
+  product: productReducer,
+  client: clientReducer,
+  quote: quoteReducer,
+  fotos: fotosReducer,
+});
+
+const middleWares = [ReduxThunk];
+
+const rootReducer = (state, action)=>{
+  return allReducers(state, action)
+}
 
 
 function App() {
+  const store = createStore(
+    rootReducer,
+    applyMiddleware(...middleWares),
+  )
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
         <Header/>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -31,6 +64,7 @@ function App() {
           <Route exact path="/pedido" component={MiPedido} />
         </Switch>
       </Router>
+    </Provider>
   );
 }
 

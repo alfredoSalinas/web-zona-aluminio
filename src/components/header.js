@@ -7,6 +7,10 @@ import ListItemIcon from '@material-ui/core/SvgIcon'
 import { Box, Button, Menu, MenuItem, ListItem } from '@material-ui/core';
 import MenuAdmin from './menus/menuAdmin';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { useSelector, useDispatch } from 'react-redux'
+import { signIn, signOut } from '../store/actions/auth.actions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,11 +50,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
+  const dispatch = useDispatch()
+  const userData = useSelector(state=>state.auth.user)
+  const isSignin = useSelector(state=>state.auth.isSignin)
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorAdmin, setAnchorAdmin] = React.useState(null);
   const [openAdmin, setOpenAdmin] = React.useState(false);
   const [placement, setPlacement] = React.useState();
+
+  const usuario = ()=>{
+    const provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithPopup(provider)
+        .then(result => {
+          console.log('Resultado ', result.user.uid)
+          dispatch(signIn({
+            id: result.user.uid,
+            name: result.user.displayName,
+            email: result.user.email,
+            foto: result.user.photoURL
+          }))
+        })
+        .catch(err =>{
+          console.log(err.message)
+        })
+    firebase.auth().onAuthStateChanged(user =>{
+      if (user) {
+        console.log(user.displayName)
+      } else {
+           console.log("usuario null");
+      }
+    })
+  }
+
 
   const handleClickAdmin = (newPlacement) => (event) => {
     setAnchorAdmin(event.currentTarget);
@@ -101,7 +133,7 @@ export default function Header() {
                 </Button>
             </Box>
             </Box>
-            <Button variant="outlined" color='inherit'>Registrarme</Button>
+            <Button variant="outlined" color='inherit' onClick={usuario}>Registrarme</Button>
         </Toolbar>
       </AppBar>
         

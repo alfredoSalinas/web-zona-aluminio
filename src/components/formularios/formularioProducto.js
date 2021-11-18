@@ -3,6 +3,9 @@ import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 import archivo from "../../iconos/archivo.svg"
 import CommonStyles from "../../common/styles/commonStyles";
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 const useStyles= makeStyles((theme) => ({
     ...CommonStyles,
@@ -17,17 +20,43 @@ const useStyles= makeStyles((theme) => ({
       }
 }))
 
+const schema = Yup.object().shape({
+    codigo: Yup.string().required(),
+    nombre: Yup.string().required(),
+    descripcion: Yup.string().required(),
+    precio: Yup.number().required(),
+    //color: Yup.string().required(),
+    unidad: Yup.string().required(),
+    //grupo: Yup.string().required(),
+    //subGrupo: Yup.string().required()
+})
+
 const FormularioProducto = (eventos)=>{
     const classes = useStyles()
-    const [age, setAge] = React.useState('');
+    const defaultValues = {
+        codigo: eventos.producto ? eventos.producto.codigo : '',
+        nombre: eventos.producto ? eventos.producto.nombre : '',
+        descripcion: eventos.producto ? eventos.producto.descripcion : '',
+        precio: eventos.producto ? eventos.producto.precio : '',
+        unidad: eventos.producto ? eventos.producto.unidad : '',
+        color: eventos.producto ? eventos.producto.color : '',
+        grupo: eventos.producto ? eventos.producto.grupo : '',
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+      }
+    const { control, register, handleSubmit } = useForm({
+        defaultValues,
+        mode: 'onChange',
+        reValidateMode: 'onChange',
+        resolver: yupResolver(schema),
+    });
 
-
+    const createProducto = (datos)=>{
+        console.log(datos)
+    }
 
     return(
+        <form onSubmit={handleSubmit((d)=>createProducto(d))}>
+            
         <Paper className={classes.p2}>
             <Typography variant='h5' className={classes.title}>
                 Producto
@@ -35,7 +64,12 @@ const FormularioProducto = (eventos)=>{
             <label className={classes.label}>
                 Nombre del Producto
             </label>
-            <input type="text" className={classes.formControl} name="precio"/>
+            <Controller
+                render={({ field }) => <input className={classes.formControl} {...field} />}
+                name="nombre"
+                control={control}
+                defaultValue={defaultValues.nombre}
+            />
             <div >
                     <label className={classes.label}>
                         Foto
@@ -50,46 +84,69 @@ const FormularioProducto = (eventos)=>{
             <label className={classes.label}>
                 Descripción
             </label>
-            <input type="text" className={classes.formControl} name="descripcion"/>
+            <Controller
+                render={({ field }) => <input className={classes.formControl} {...field} />}
+                name="descripcion"
+                control={control}
+                defaultValue={defaultValues.descripcion}
+            />
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
                     <label className={classes.label}>
                         Codigo
                     </label>
-                    <input type="text" className={classes.formControl} name="codigo"/>
+                    <Controller
+                        render={({ field }) => <input className={classes.formControl} {...field} />}
+                        name="codigo"
+                        control={control}
+                        defaultValue={defaultValues.codigo}
+                    />
                 </div>
                 <div style={{width:'50%'}}>
                     <label className={classes.label}>
                         Precio
                     </label>
-                    <input type="text" className={classes.formControl} name="precio"/>
+                    <Controller
+                        render={({ field }) => <input type='number' className={classes.formControl} {...field} />}
+                        name="precio"
+                        control={control}
+                        defaultValue={defaultValues.precio}
+                    />
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
                 <div style={{marginRight:20, width:'50%'}}>
-                <label className={classes.label}>
+                    <label className={classes.label}>
                         Color
                     </label>
-                    <Select
-                        labelId="demo-simple-select-disabled-label"
-                        id="demo-simple-select-disabled"
-                        value={age}
-                        onChange={handleChange}
-                        className={classes.formControl}
-                        >
-                        <MenuItem value={10}>Natural</MenuItem>
-                        <MenuItem value={20}>Champagne</MenuItem>
-                        <MenuItem value={30}>Negro</MenuItem>
-                        <MenuItem value={40}>Cromado</MenuItem>
-                        <MenuItem value={50}>Bronce</MenuItem>
-                        <MenuItem value={60}>Sin color</MenuItem>
-                    </Select>   
+                    <Controller
+                        render={({ field }) => <Select
+                                className={classes.formControl}
+                                {...field}
+                                >
+                                <MenuItem value='Natural'>Natural</MenuItem>
+                                <MenuItem value='Champagne'>Champagne</MenuItem>
+                                <MenuItem value='Negro'>Negro</MenuItem>
+                                <MenuItem value='Cromado'>Cromado</MenuItem>
+                                <MenuItem value='Bronce'>Bronce</MenuItem>
+                                <MenuItem value='Sin color'>Sin color</MenuItem>
+                            </Select> }
+                        name="color"
+                        control={control}
+                        defaultValue={defaultValues.color}
+                    />
+                       
                 </div>
                 <div style={{width:'50%'}}>
                 <label className={classes.label}>
                         Unidad
                     </label>
-                    <input type="text" className={classes.formControl} name="unidad"/>
+                    <Controller
+                        render={({ field }) => <input className={classes.formControl} {...field} />}
+                        name="unidad"
+                        control={control}
+                        defaultValue={defaultValues.unidad}
+                    />
                 </div>   
             </Box>
             <Box display='flex' justifyContent='flex-start'>
@@ -97,55 +154,66 @@ const FormularioProducto = (eventos)=>{
                     <label className={classes.label}>
                         Seleccionar Grupo
                     </label>
-                    <Select
-                        labelId="demo-simple-select-disabled-label"
-                        id="demo-simple-select-disabled"
-                        value={age}
-                        onChange={handleChange}
-                        className={classes.formControl}
-                        >
-                        <MenuItem value={10}>Perfiles de Aluminio</MenuItem>
-                        <MenuItem value={20}>Quincallería</MenuItem>
-                        <MenuItem value={30}>Jaladores</MenuItem>
-                        <MenuItem value={40}>Accesorios Vidrio Templado</MenuItem>
-                        <MenuItem value={50}>Barandas</MenuItem>
-                        <MenuItem value={60}>Placas</MenuItem>
-                    </Select>
+                    <Controller
+                            render={({ field }) => <Select
+                            className={classes.formControl}
+                            {...field}
+                            >
+                            <MenuItem value='Perfiles de Aluminio'>Perfiles de Aluminio</MenuItem>
+                            <MenuItem value='Quincallería'>Quincallería</MenuItem>
+                            <MenuItem value='Jaladores'>Jaladores</MenuItem>
+                            <MenuItem value='Accesorios Vidrio Templado'>Accesorios Vidrio Templado</MenuItem>
+                            <MenuItem value='Barandas'>Barandas</MenuItem>
+                            <MenuItem value='Placas'>Placas</MenuItem>
+                        </Select> }
+                        name="grupo"
+                        control={control}
+                        defaultValue={defaultValues.grupo}
+                    />
+                    
                 </div>
                 <div style={{width:'50%'}}>
                     <label className={classes.label}>
                         Seleccionar Sub Grupo
                     </label>
-                    <Select
-                        labelId="demo-simple-select-disabled-label"
-                        id="demo-simple-select-disabled"
-                        value={age}
-                        onChange={handleChange}
-                        className={classes.formControl}
-                        >
-                        <MenuItem value={10}>Línea 12</MenuItem>
-                        <MenuItem value={20}>Línea 20</MenuItem>
-                        <MenuItem value={30}>Línea 25</MenuItem>
-                        <MenuItem value={40}>Línea 25</MenuItem>
-                        <MenuItem value={50}>Línea 35</MenuItem>
-                        <MenuItem value={60}>Línea 42</MenuItem>
-                        <MenuItem value={70}>Línea 4000</MenuItem>
-                        <MenuItem value={80}>Tubos</MenuItem>
-                        <MenuItem value={90}>Vidrio Templado</MenuItem>
-                        <MenuItem value={100}>Kits</MenuItem>
-                        <MenuItem value={110}>Herraje de Correr</MenuItem>
-                        <MenuItem value={120}>Herraje de Abatir</MenuItem>
-                        <MenuItem value={130}>Herraje Basculante</MenuItem>
-                        <MenuItem value={140}>Herraje Paños Fijos</MenuItem>
-                        <MenuItem value={150}>Herraje Minis</MenuItem>
-                    </Select>
+                    <Controller
+                            render={({ field }) => <Select
+                            className={classes.formControl}
+                            {...field}
+                            >
+                            <MenuItem value='Línea 12'>Línea 12</MenuItem>
+                            <MenuItem value='Línea 20'>Línea 20</MenuItem>
+                            <MenuItem value='Línea 25'>Línea 25</MenuItem>
+                            <MenuItem value='Línea 25'>Línea 25</MenuItem>
+                            <MenuItem value='Línea 35'>Línea 35</MenuItem>
+                            <MenuItem value='Línea 42'>Línea 42</MenuItem>
+                            <MenuItem value='Línea 4000'>Línea 4000</MenuItem>
+                            <MenuItem value='Tubos'>Tubos</MenuItem>
+                            <MenuItem value='Vidrio Templado'>Vidrio Templado</MenuItem>
+                            <MenuItem value='Kits'>Kits</MenuItem>
+                            <MenuItem value='Herraje de Correr'>Herraje de Correr</MenuItem>
+                            <MenuItem value='Herraje de Abatir'>Herraje de Abatir</MenuItem>
+                            <MenuItem value='Herraje Basculante'>Herraje Basculante</MenuItem>
+                            <MenuItem value='Herraje Paños Fijos'>Herraje Paños Fijos</MenuItem>
+                            <MenuItem value='Herraje Minis'>Herraje Minis</MenuItem>
+                        </Select> }
+                        name="subGrupo"
+                        control={control}
+                        defaultValue={defaultValues.subGrupo}
+                    />
                 </div>   
             </Box>
             <Box display='flex' justifyContent='center' marginTop='20px'>
-                <button className={classes.button}>Aceptar</button>
+            <input  
+            type='submit'
+            className='button btnPrimary' 
+            style={{marginRight:'25%'}} 
+            value='Aceptar'
+          />
                 <button className={classes.buttonSecondary} onClick={eventos.onClick}>Cancelar</button>
             </Box>
         </Paper>
+    </form>
     )
 }
 
