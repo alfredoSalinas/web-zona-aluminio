@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
 import {makeStyles, Select, MenuItem} from '@material-ui/core';
 import archivo from "../../iconos/archivo.svg"
@@ -6,6 +6,9 @@ import CommonStyles from "../../common/styles/commonStyles";
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { db } from "../../services/firebase/setup";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 
 const useStyles= makeStyles((theme) => ({
     ...CommonStyles,
@@ -33,6 +36,9 @@ const schema = Yup.object().shape({
 
 const FormularioProducto = (eventos)=>{
     const classes = useStyles()
+    const [foto, setFoto] = useState()
+    const [fotoURL, setFotoURL] = useState("")
+    const [progreso, setProgreso] = useState(0)
     const defaultValues = {
         codigo: eventos.producto ? eventos.producto.codigo : '',
         nombre: eventos.producto ? eventos.producto.nombre : '',
@@ -41,7 +47,8 @@ const FormularioProducto = (eventos)=>{
         unidad: eventos.producto ? eventos.producto.unidad : '',
         color: eventos.producto ? eventos.producto.color : '',
         grupo: eventos.producto ? eventos.producto.grupo : '',
-
+        subGrupo: eventos.producto ? eventos.producto.subGrupo : '',
+        foto: eventos.producto ? eventos.producto.foto : '',
       }
     const { control, register, handleSubmit } = useForm({
         defaultValues,
@@ -50,17 +57,45 @@ const FormularioProducto = (eventos)=>{
         resolver: yupResolver(schema),
     });
 
-    const createProducto = (datos)=>{
-        console.log(datos)
+    useEffect(()=>{
+        setFotoURL(defaultValues.foto)
+    },[])
+
+    const subirFoto = (e)=>{
+        const file = e.target.files[0]
+        const storageRef = firebase.storage().ref(`/productos/${file.name}`)
+        const task = storageRef.put(file)
+        task.on('state_changed', snapshot =>{
+            let porcentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            setProgreso(porcentage)
+        }, error=>{
+            console.log('Error al subir el archivo', error);
+        }, ()=>{
+            task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log(downloadURL)
+                setFotoURL(downloadURL)
+            });
+        })
+      }
+
+    const createProducto = (data)=>{
+        const producto = {
+            ...data,
+            foto: fotoURL
+        }
+        return db.collection('productos')
+            .doc(producto.codigo)
+            .set(producto);
     }
 
     return(
-        <form onSubmit={handleSubmit((d)=>createProducto(d))}>
+        
             
         <Paper className={classes.p2}>
             <Typography variant='h5' className={classes.title}>
                 Producto
             </Typography>
+            <form onSubmit={handleSubmit((d)=>createProducto(d))}>
             <label className={classes.label}>
                 Nombre del Producto
             </label>
@@ -77,10 +112,17 @@ const FormularioProducto = (eventos)=>{
                     <button className={classes.formControlFile}>
                         <i ></i>
                             <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
-                        <input type="file" id="btn-file" />
-                    </button>
-                    
+                            {fotoURL}
+                        <input type="file" id="btn-file" 
+                            onChange={(e)=>{
+                                const file = e.target.files[0]
+                                setFotoURL(file.name)
+                                subirFoto(e)
+                            }}
+                        />
+                    </button>  
             </div>
+            <progress value={progreso}/>
             <label className={classes.label}>
                 Descripción
             </label>
@@ -212,8 +254,8 @@ const FormularioProducto = (eventos)=>{
           />
                 <button className={classes.buttonSecondary} onClick={eventos.onClick}>Cancelar</button>
             </Box>
+            </form>
         </Paper>
-    </form>
     )
 }
 

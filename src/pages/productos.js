@@ -8,49 +8,8 @@ import foto from '../images/aluminio.png'
 import ProductSelect from "../components/productSelect";
 import CommonStyles from "../common/styles/commonStyles";
 import barra from "../images/barra8.png"
+import { listaProductos } from "../services/firebase/api";
 
-const misproductos = [
-    {
-        codigo: 'cod1',
-        producto: '',
-        description: 'Usado para ventanas dobles corredizas.',
-        precio: 0,
-        color: 'champagne',
-        grupo: 'jalador',
-        subgrupo: 'L20',
-        foto: foto
-    },
-    {
-        codigo: 'cod2',
-        producto: '',
-        precio: 0,
-        color: 'champagne',
-        grupo: 'aluminio',
-        subgrupo: 'L20',
-        foto: foto
-    },
-    {
-        codigo: 'cod3',
-        producto: '',
-        description: 'Usado para ventanas',
-        precio: 0,
-        color: 'champagne',
-        grupo: 'jalador',
-        subgrupo: 'L20',
-        foto: foto
-    },
-    {
-        codigo: 'cod4',
-        producto: '',
-        description: 'Perfil de aluminio',
-        precio: 0,
-        color: 'champagne',
-        grupo: 'aluminio',
-        subgrupo: 'L20',
-        foto: foto
-    },
-
-]
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
@@ -69,6 +28,7 @@ const Productos = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
     const [productos, setProductos] = useState([])
+    const [productosOrigen, setProductosOrigen] = useState([])
     const handleOpen = () =>{
         setOpen(true)
     }
@@ -78,15 +38,17 @@ const Productos = ()=>{
     }
 
     useEffect(()=>{
-        setProductos(misproductos)
-    },[])
+        listaProductos((res)=>{
+            setProductosOrigen(res)
+        }) 
+     },[])
 
     const buscarProducto = (valor) => {
-        console.log(valor)
         let r = new RegExp(valor, 'ig')
-        const p = misproductos.filter((item) => {
-          return r.test(item.grupo)
+        const p = productosOrigen.filter((item) => {
+          return item.grupo == valor
         })
+        console.log('valor a buscar ',p)
         setProductos(p)
     }
 

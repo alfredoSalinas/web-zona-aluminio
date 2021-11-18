@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const datos = [
-  {name: 'Aluminio', value: 'aluminio'},
-  {name: 'Jaladores', value: 'jalador'}
+  {name: 'Perfiles de Aluminio', value: 'Perfiles de Aluminio'},
+  {name: 'Jaladores', value: 'Jaladores'}
 ]
 
 export default function ProductSelect(props) {
@@ -26,7 +26,7 @@ export default function ProductSelect(props) {
 
   const cambiar = (e)=>{
       const valor = e.target.value
-      if(valor=='aluminio'){
+      if(valor=='Perfiles de Aluminio'){
         setLinea(true)
       }
       else{

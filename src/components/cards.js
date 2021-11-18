@@ -83,15 +83,13 @@ const Cards = (props)=> {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Box className={classes.box}>
-          <div>{props.tarjeta.codigo}</div>
-        </Box>
+        
         <Box>
           <img height='200px' width='100%' src={props.tarjeta.foto}/>
         </Box>
         <Box className={classes.box1}>
-          <Typography className={classes.texto} align='center'>Jamba</Typography>
-          <Typography className={classes.mb4} align='center'>{props.tarjeta.description}</Typography>
+          <Typography className={classes.texto} align='center'>{props.tarjeta.nombre}</Typography>
+          <Typography className={classes.mb4} align='center'>{props.tarjeta.descripcion}</Typography>
           <div className={classes.boton}>
             Añadir a Cotización
           </div>

@@ -30,7 +30,7 @@ export default function ModalProducto(props) {
         style={{maxHeight: '100%', overflow: 'auto'}}
       >
         <Fade in={props.open}>
-          <FormularioProducto producto={null} />    
+          <FormularioProducto producto={props.producto} />    
         </Fade>
       </Modal>
     </div>

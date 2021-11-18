@@ -1,4 +1,17 @@
 import { db } from './setup'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
+import { collection, getDocs } from "firebase/firestore";
+
+
+export async function  listaProductos(callback){
+  let misProductos = []
+  const querySnapshot = await getDocs(collection(db, "productos"));
+  querySnapshot.forEach((doc) => {
+      misProductos.push(doc.data())
+  });
+  callback(misProductos)
+}
 
 export const getAdmin = (user, callback)=>{
   const unsub = db
