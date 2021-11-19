@@ -3,7 +3,7 @@ import ModalProducto from "../components/modales/modalProducto";
 import {Box, makeStyles, Typography, Container} from '@material-ui/core';
 import TablaProductos from "../components/tablas/tablaProductos";
 import CommonStyles from "../common/styles/commonStyles";
-import { listaProductos } from "../services/firebase/api";
+import { listaProductos } from "../services/api";
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,

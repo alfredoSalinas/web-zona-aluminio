@@ -6,7 +6,7 @@ import CommonStyles from "../../common/styles/commonStyles";
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { db } from "../../services/firebase/setup";
+import { db } from "../../services/firebase";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 

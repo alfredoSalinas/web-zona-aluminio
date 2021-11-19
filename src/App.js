@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { db } from './services/firebase/setup'
+import { db, auth } from './services/firebase'
 import {
   BrowserRouter as Router,
   Route,
@@ -27,6 +27,7 @@ import adminReducer from './store/reducers/admin.reducer'
 import fotosReducer from './store/reducers/fotos.reducer';
 import { signIn, signOut, authReady } from './store/actions/auth.actions';
 import { isAdmin } from './store/actions/admin.actions';
+import watchUserChanges from './services/auth'
 
 
 const allReducers = combineReducers({
@@ -50,6 +51,20 @@ function App() {
     rootReducer,
     applyMiddleware(...middleWares),
   )
+/*
+  watchUserChanges((user)=>{
+    console.log(user)
+    store.dispatch(authReady(true))
+    if(user !=null){
+      store.dispatch(signIn(user))
+    }
+    if(user != null){
+      //getAdmin(user, (admin)=>{
+      //  store.dispatch(isAdmin(admin))
+      //})
+    }
+  })
+*/
   return (
     <Provider store={store}>
       <Router>

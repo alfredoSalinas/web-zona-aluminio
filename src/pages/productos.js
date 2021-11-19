@@ -8,7 +8,7 @@ import foto from '../images/aluminio.png'
 import ProductSelect from "../components/productSelect";
 import CommonStyles from "../common/styles/commonStyles";
 import barra from "../images/barra8.png"
-import { listaProductos } from "../services/firebase/api";
+import { listaProductos } from "../services/api";
 
 
 const useStyles = makeStyles((theme) => ({

@@ -133,7 +133,11 @@ export default function Header() {
                 </Button>
             </Box>
             </Box>
-            <Button variant="outlined" color='inherit' onClick={usuario}>Registrarme</Button>
+            {
+              userData && <img style={{borderRadius:'50%', width:40}} src={userData.foto} />
+            }
+            { !userData &&
+            <Button variant="outlined" color='inherit' onClick={usuario}>{userData ? userData.displayName : 'Registrarme'}</Button>}
         </Toolbar>
       </AppBar>
         
