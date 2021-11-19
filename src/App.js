@@ -51,7 +51,7 @@ function App() {
     rootReducer,
     applyMiddleware(...middleWares),
   )
-/*
+
   watchUserChanges((user)=>{
     console.log(user)
     store.dispatch(authReady(true))
@@ -64,7 +64,7 @@ function App() {
       //})
     }
   })
-*/
+
   return (
     <Provider store={store}>
       <Router>
