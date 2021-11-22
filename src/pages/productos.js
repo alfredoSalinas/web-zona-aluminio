@@ -9,6 +9,7 @@ import ProductSelect from "../components/productSelect";
 import CommonStyles from "../common/styles/commonStyles";
 import barra from "../images/barra8.png"
 import { listaProductos } from "../services/api";
+import ComponentCard from '../components/componentCard'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,27 +54,26 @@ const Productos = ()=>{
     }
 
     return(
-        <Container className={classes.mt4}>
+        <Box className={classes.root}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Productos
                 </Typography>
-                <ProductSelect buscar={buscarProducto}/>
+                
             </Box>
-            <Box className={classes.root}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            {productos.map((value, i) => (
-                            <Grid key={i} item>
-                                <Cards tarjeta={value} />
-                            </Grid>
-                            ))}
+            <ProductSelect buscar={buscarProducto}/>    
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <Grid container justify="center" spacing={2}>
+                        {productos.map((value, i) => (
+                        <Grid key={i} item>
+                            <Cards tarjeta={value} />
                         </Grid>
+                        ))}
                     </Grid>
                 </Grid>
-            </Box>
-        </Container>
+            </Grid>
+        </Box>
     )
 }
 

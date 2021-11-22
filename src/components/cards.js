@@ -10,11 +10,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    width: 240,
+    width: 340,
     border:'1px solid  #757575',
     borderWidth:3,
     borderRadius:5,
-    marginRight:20,
 
     "&:hover": {
       border: '1px solid #65FC15',
@@ -85,7 +84,7 @@ const Cards = (props)=> {
       <Paper className={classes.paper}>
         
         <Box>
-          <img height='200px' width='100%' src={props.tarjeta.foto}/>
+          <img height='340px' width='100%' src={props.tarjeta.foto}/>
         </Box>
         <Box className={classes.box1}>
           <Typography className={classes.texto} align='center'>{props.tarjeta.nombre}</Typography>

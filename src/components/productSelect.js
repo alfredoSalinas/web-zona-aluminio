@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme) => ({
 
 const datos = [
   {name: 'Perfiles de Aluminio', value: 'Perfiles de Aluminio'},
-  {name: 'Jaladores', value: 'Jaladores'}
+  {name: 'Jaladores', value: 'Jaladores'},
+  {name: 'Accesorios Vidrio Templado', value: 'Accesorios Vidrio Templado'},
+  {name: 'Quincallería', value: 'Quincallería'},
+  {name: 'Barandas', value: 'Barandas'},
+  {name: 'Placas', value: 'Placas'}
 ]
 
 export default function ProductSelect(props) {

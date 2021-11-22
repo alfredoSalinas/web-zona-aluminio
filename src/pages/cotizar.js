@@ -5,6 +5,7 @@ import carritoIcon from "../iconos/carrito.svg"
 import MiIcon from "../components/icon";
 import { Link } from 'react-router-dom';
 import CommonStyles from "../common/styles/commonStyles";
+import { listaProductos } from "../services/api";
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
@@ -16,8 +17,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Cotizar = ()=>{
     const classes = useStyles()
-    //const commonStyles = CommonStyles()
+    const [productos, setProductos] = useState([])
     
+    useEffect(()=>{
+        listaProductos((res)=>{
+            setProductos(res)
+        }) 
+     },[])
+
     return(
         <Container className={classes.mt6}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
@@ -29,7 +36,7 @@ const Cotizar = ()=>{
                 </Link>
                
             </Box>
-            <TablaCotizar/>
+            <TablaCotizar productos={productos}/>
         </Container>
     )
 }
