@@ -61,7 +61,7 @@ export default function Header() {
   const [openAdmin, setOpenAdmin] = React.useState(false);
   const [placement, setPlacement] = React.useState();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const usuario = ()=>{
     const provider = new firebase.auth.GoogleAuthProvider()

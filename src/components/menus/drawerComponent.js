@@ -35,6 +35,13 @@ const DrawerComponent = ()=>{
                             </Link>
                         </ListItemText>
                     </ListItem>
+                    <ListItem onClick={() => setOpenDrawer(false)}>
+                        <ListItemText>
+                            <Link to='/cotizar'>
+                                Cotizar
+                            </Link>
+                        </ListItemText>
+                    </ListItem>
                 </List>
             </Drawer>
             <IconButton onClick={() => setOpenDrawer(!openDrawer)}

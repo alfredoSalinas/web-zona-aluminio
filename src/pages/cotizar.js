@@ -26,7 +26,7 @@ const Cotizar = ()=>{
      },[])
 
     return(
-        <Container className={classes.mt6}>
+        <Container className={classes.mt6} style={{marginTop: 100}}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Cotizar
