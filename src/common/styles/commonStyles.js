@@ -160,7 +160,7 @@ const CommonStyles =
     buttonPrimary:{
       ...CommonProperties.h3,
       ...CommonProperties.borderRadius,
-        fontWeight: 400,
+        fontWeight: 700,
         color: Color.secondary,
         backgroundClip: 'padding-box',
         cursor: 'pointer',
@@ -168,18 +168,19 @@ const CommonStyles =
         mozAppearance: 'none',
         appearance: 'none',
         padding: '0.7rem 1.5rem 0.7rem 1.5rem',
-        backgroundColor: '#65FC15',
-        border: '1px solid #65FC15',
+        backgroundColor: Color.primary,
+        border: '1px solid #5be611',
 
         "&:hover": {
           border: '1px solid #84ff42',
           backgroundColor: '#84ff42',
+          fontWeight: 700,
         },
     },
     buttonSecondary:{
       ...CommonProperties.h3,
       ...CommonProperties.borderRadius,
-        fontWeight: 400,
+        fontWeight: 700,
         color: Color.secondary,
         backgroundClip: 'padding-box',
         cursor: 'pointer',
@@ -193,12 +194,13 @@ const CommonStyles =
         "&:hover": {
           border: '1px solid #fa7676',
           backgroundColor: '#fa7676',
+          fontWeight: 700,
         },
     },
     buttonTerciary:{
       ...CommonProperties.h3,
       ...CommonProperties.borderRadius,
-        fontWeight: 400,
+        fontWeight: 700,
         color: Color.secondary,
         backgroundClip: 'padding-box',
         cursor: 'pointer',
@@ -212,6 +214,7 @@ const CommonStyles =
         "&:hover": {
           border: '1px solid #b5bbc0',
           backgroundColor: '#b5bbc0',
+          fontWeight: 700,
         },
     },
 

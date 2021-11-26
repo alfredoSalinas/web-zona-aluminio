@@ -113,6 +113,7 @@ const FormularioProducto = (eventos)=>{
                         <i ></i>
                             <img src={archivo} className={classes.imgArchivo} alt="" />Sube la foto del producto
                             {fotoURL}
+                            <label for="btn-file"></label>
                         <input type="file" id="btn-file" 
                             onChange={(e)=>{
                                 const file = e.target.files[0]
@@ -248,7 +249,7 @@ const FormularioProducto = (eventos)=>{
             <Box display='flex' justifyContent='center' marginTop='20px'>
             <input  
             type='submit'
-            className='button btnPrimary' 
+            className={classes.buttonPrimary} 
             style={{marginRight:'25%'}} 
             value='Aceptar'
           />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Button, Paper, Typography } from '@material-ui/core';
+import { Box, Button, colors, Paper, Typography } from '@material-ui/core';
 import foto from "../images/aluminio.png"
 
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:5,
 
     "&:hover": {
-      border: '1px solid #65FC15',
+      border: '1px solid #5be611',
       borderWidth:3,
       borderRadius:5,
     }
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     fontSize: '1rem',
     fontWeight: 700,
-    color: '#65FC15',
+    color: '#5be611',
     backgrounClip: 'padding-box',
     cursor: 'pointer',
     webkitAppearance: 'none',
@@ -56,13 +56,13 @@ const useStyles = makeStyles((theme) => ({
     appearance: 'none',
     borderRadius: 5,
     padding:'4% 2%',
-    border:'1px solid #65FC15',
+    border:'1px solid #5be611',
     marginTop: 10,
     marginBottom:10,
 
     "&:hover": {
-        border: '1px solid #65FC15',
-        backgroundColor: '#65FC15',
+        border: '1px solid #5be611',
+        backgroundColor: '#5be611',
         color:'#1F1D1D'
       }
     },

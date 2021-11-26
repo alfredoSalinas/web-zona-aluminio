@@ -20,7 +20,7 @@ const Tutoriales = ()=>{
         setOpen(false)
     }
     return(
-        <Container className={classes.mt4}>
+        <Container className={classes.mt5}>
             <Box display='flex' justifyContent='space-between' marginBottom='3%'>
                 <Typography variant='h5' className={classes.title1}>
                     Tutoriales
