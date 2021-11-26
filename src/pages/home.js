@@ -17,6 +17,8 @@ const Home = ()=>{
         <Box>
             <Box>
                 <img width='100%' src={portada}/>
+                <img width='100%' src={portada}/>
+                <img width='100%' src={portada}/>
             </Box>
             <Box>
                 <img width='100%' src={marcas}/>

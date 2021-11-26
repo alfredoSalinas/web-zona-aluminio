@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalProducto from "../components/modales/modalProducto";
-import {Box, Container, makeStyles, Typography} from '@material-ui/core';
+import {Box, Button, Container, makeStyles, useMediaQuery, useTheme} from '@material-ui/core';
 import TablaProductos from "../components/tablas/tablaProductos";
 import Grid from '@material-ui/core/Grid';
 import Cards from '../components/cards'
@@ -9,13 +9,16 @@ import ProductSelect from "../components/productSelect";
 import CommonStyles from "../common/styles/commonStyles";
 import barra from "../images/barra8.png"
 import { listaProductos } from "../services/api";
+import MenuProductos from "../components/menus/menuProductos";
 import ComponentCard from '../components/componentCard'
+import DrawerProductos from "../components/menus/drawerProductos";
 
 
 const useStyles = makeStyles((theme) => ({
     ...CommonStyles,
         root: {
           flexGrow: 1,
+          marginTop: 70
         },
         control: {
           padding: theme.spacing(2),
@@ -28,8 +31,11 @@ const useStyles = makeStyles((theme) => ({
 const Productos = ()=>{
     const classes = useStyles()
     const [open, setOpen] = useState(false)
+    const [openProductos, setOpenProductos]= useState(false)
     const [productos, setProductos] = useState([])
     const [productosOrigen, setProductosOrigen] = useState([])
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const handleOpen = () =>{
         setOpen(true)
     }
@@ -53,15 +59,25 @@ const Productos = ()=>{
         setProductos(p)
     }
 
+    const handleOpenProductos =()=> {
+        setOpenProductos(true)
+    }
+
+    const handleCloseProductos =()=> {
+        setOpenProductos(false)
+    }
     return(
         <Box className={classes.root}>
-            <Box display='flex' justifyContent='space-between' marginBottom='3%'>
-                <Typography variant='h5' className={classes.title1}>
-                    Productos
-                </Typography>
-                
-            </Box>
-            <ProductSelect buscar={buscarProducto}/>    
+            <Box>
+                { isMobile ? 
+                    <>
+                    <Button onClick={handleOpenProductos} className={classes.buttonPrimary}>productos</Button>
+                <DrawerProductos open={openProductos} onClose={handleCloseProductos}/>
+            </>
+            :
+            <MenuProductos/>
+            }
+            </Box>   
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Grid container justify="center" spacing={2}>
